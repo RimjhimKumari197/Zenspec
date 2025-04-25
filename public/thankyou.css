@@ -1,0 +1,357 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    }
+    .main-cont{
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+    }
+    .col-1{
+        position: absolute; 
+        left: 0px;
+        top: 0px;
+        display: flex;
+        flex-direction: column;
+        z-index: -1;
+    }
+    
+    .col-2{
+        
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 420px;
+        z-index: -1;
+       
+    }
+    
+    .col-3{
+        
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 840px;
+        z-index: -1;
+       
+    }
+    
+    .col-4{
+        
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 1260px;
+        z-index: -1;
+       
+    }
+    
+    
+    .bg-1 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+        
+    }
+    .bg-2 {
+        
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-3 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+      
+    }.bg-4 {
+        
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+        
+    }
+    
+    .bg-5 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    } 
+    .bg-6 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-7 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-8 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-9 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }
+    .bg-10 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-11 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-12 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-13 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }
+    .bg-14 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-15 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-16 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+        
+    }
+
+
+
+    .box-1{
+        position: absolute;
+        top: 70px;
+        left: 80px;
+        z-index: 1;
+    }
+    .box-1 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(-62.38deg);
+    
+    }
+    
+    
+    .box-2{
+        position: absolute;
+        top: 49px;
+        left: 455px;
+        z-index: 1;
+    }
+    .box-2 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(0.38deg);
+    }
+    
+    .box-3{
+        position: absolute;
+        top: -50px;
+        left: 740px;
+        z-index: 1;
+    }
+    .box-3 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(2.38deg);
+    }
+    
+    
+    .box-4{
+        position: absolute;
+        top: 60px;
+        left: 1060px;
+        z-index: 1;
+    }
+    .box-4 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(70.38deg);
+    }
+    
+    
+    .box-5{
+        position: absolute;
+        top:-55px;
+        left: 1230px;
+       
+    }
+    .box-5 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(0.38deg);
+    }
+    
+    
+    .box-6{
+        position: absolute;
+        top: 365px;
+        left: 16px;
+       
+    }
+    
+    
+    .box-6 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(232.38deg);
+    }
+    
+    
+    .box-7{
+        position: absolute;
+        top: 550px;
+        left: 100px;
+      
+    }
+    .box-7 video{
+        width: 230px;
+        height: 230px;
+       
+        transform: rotate(-0.38deg);
+    }
+    
+    
+    .box-8{
+        position: absolute;
+        top: 475px;
+        left: 480px;
+       
+    }
+    .box-8 video{
+        width: 230px;
+        height: 230px;
+        transform: rotate(-1.38deg);
+    }
+    
+    
+    .box-9{
+        position: absolute;
+        top: 620px;
+        right: 435px;
+       
+    }
+    .box-9 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(150.38deg);
+    }
+    
+    
+    .box-10{
+        position: absolute;
+        top: 575px;
+        right: 110px;
+       
+    }
+    .box-10 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(140.38deg);
+    }
+    
+    .box-11{
+        position: absolute;
+        top: 300px;
+        right: -85px;
+       
+    }
+    .box-11 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(140.38deg);
+    }
+
+    .main-box{
+       
+    }
+    
+    .thank{
+        position: absolute;
+        top: 294px;
+        left: 313px;
+        z-index: 1;
+        height: 300px;
+        width: 950px;
+    }
+    .thank span{
+        color: #F59C42;
+font-family: "Rubik Moonrocks";
+font-size: 160px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -3px;
+    }
+    .arrow-back{
+        position: absolute;
+        top: 380px;
+        left: 20px;
+     
+       
+    }
+    .arrow-back img{  
+    height: 40px;
+    width: 40px;
+    }
+    .logo{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .logo img{
+        height: 85px;
+        width: 85px;
+    }
+    #arrow-back{
+        background-color: transparent;
+        border: none;
+    }
+
+    
+    
+    
+    
+    
+    
+    

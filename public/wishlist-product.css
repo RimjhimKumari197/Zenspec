@@ -1,0 +1,357 @@
+::-webkit-scrollbar {
+    display: none;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: poppins;
+    
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* height: 100vh;
+    width: 100vw; */
+    
+   
+}
+  a{
+    text-decoration: none;
+    
+  }
+  
+  .product-wrapper,
+  .product-wrapper * {
+    user-select: text !important;
+  }
+  .full-container{
+    overflow: hidden;
+    background-color: #F3F1C1;
+    /* height: 2059px; */
+  }
+.header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 2000;
+  }
+  .main{
+    position: relative;
+    width: 100vw;
+    margin-top: 120px;
+    
+  }
+  .device-wrapper{
+    margin: 0px 0px 0px 20px;
+    z-index: 2;
+}
+.each-product{
+    width: 1070px;
+    height: 300px;
+    background-color: #FFF;
+    border-radius: 30px;
+    display: flex;
+    border: 2px solid #000;
+    
+    
+}
+.device-info-wrapper{
+    width: 500px;
+}
+.device-name{
+    color: #000;
+font-family: Poppins;
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 54px */
+margin-bottom: 20px;
+margin-top: 20px;
+
+
+}
+.device-info{
+    color: #000;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 300;
+line-height: 20px; /* 100% */
+margin-bottom: 10px;
+}
+.device-image{
+  border-radius: 30px;
+}
+.each-product{
+    margin-bottom: 40px;
+}
+.button-price-wrapper{
+    height: 300px;
+    width: 370px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+    margin-top: 10px;
+
+}
+.button-price-info-box{
+    height: 245px;
+    padding-left: 60px;
+    border-left: 1px solid rgba(0, 0, 0, 0.50);
+    margin-top: 20px;
+    
+}
+.product-price-info{
+    color: #000;
+    font-family: Poppins;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 700;
+    position: absolute;
+    top: 10px;
+}
+.product-price-info .from{
+    color: #000;
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 48px */
+   
+}
+.offers{
+    margin-top: 35px;
+    color: #616161;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+}
+.wishlist-btn,
+.wishlist2-btn {
+  height: 33px;
+  width: 33px;
+  position: absolute;
+  left: 160px;
+  top: 90px;
+  background-color: transparent;
+  border: none;
+  transition: opacity 0.3s ease;
+}
+
+.wishlist-icon{
+  opacity: 1;
+  z-index: 3;
+  height: 33px;
+  width: 33px;
+}
+
+.wishlist2 {
+  opacity: 0;
+  z-index: 4;
+  height: 33px;
+  width: 33px;
+}
+
+/* .wishlist3 {
+  opacity: 0;
+  z-index: 5;
+  height: 33px;
+  width: 33px;
+} */
+
+/* Show hover icon on hover */
+.wishlist-wrapper:hover .wishlist {
+  opacity: 0;
+}
+.wishlist-wrapper:hover .wishlist2 {
+  opacity: 1;
+}
+.wishlist-wrapper.clicked .wishlist,.wishlist-wrapper.clicked .wishlist2{
+    opacity: 0;
+}
+.wishlist-wrapper.clicked .wishlist3{
+    opacity: 1;
+}
+/* When clicked, show clicked state */
+
+.zenny-btn{
+    width: 210px;
+    height: 55px;
+    border-radius: 23px;
+    border: 1px solid #000;
+    background: #000;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+    
+    margin-top: 18px;
+    transition: background 0.4s ease-out,color 0.4s ease-out;
+
+}
+
+/* .zenny-form{
+    position: absolute;
+   
+} */
+.zenny-btn .ask-text{
+    position: absolute;
+    top: 15px;
+    left: 28px;
+}
+.button-zenny{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+}
+.zenny-btn .ask-text,.zenny-btn .button-zenny{
+  transition: transform 0.4s ease-out;
+
+}
+.zenny-btn:hover{
+    background-color: #ABABAB;
+    color: #000;
+}
+.compare-btn{
+    width: 210px;
+    height: 55px;
+    border-radius: 25px;
+border: 1px solid rgba(0, 0, 0, 0.50);
+background: #F59C42;
+color: #000;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin-top: 60px;
+transition: all 300ms ease-out;
+}
+.compare-btn:hover{
+    border-radius: 30px;
+border: 1px solid #FFF;
+background: #000;
+color: #fff;
+}
+.pagination{
+    margin-top: 0px;
+    /* margin-left: 300px; */
+    position: relative;
+  }
+.pageNo{
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    margin: 0px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.wishlist-btn{
+    background-color: transparent;
+
+}
+.arrow{
+    
+  top: 130px;
+  left: 30px;
+  position: fixed;
+
+}
+.arrow img{
+  height: 43.5px;
+  width: 43.5px;
+}
+.header{
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index:2000;
+}
+
+#arrow-back{
+  background-color: transparent;
+  border: none;
+}
+.wishlist-text{
+  color: #000;
+font-family: Poppins;
+font-size: 45px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-left: 100px;
+}
+.smily{
+  height: 40px;
+  width: 40px;
+  position: relative;
+  top: 8px;
+}
+.product-pagination-wrapper{
+width: 1340px;
+margin-left: 98px;
+margin-top: 50px;
+padding-top: 50px;
+border-top: 2px solid #7A7A7A;
+display: flex;
+flex-direction: column;
+align-items: center;
+z-index: 3;
+}
+.contact-us{
+  display: flex;
+  width: 1050px;
+  margin-top: 50px;
+  align-items: center;
+  gap: 30px;
+}
+.contact-us-text{
+  color: #000;
+font-family: Poppins;
+font-size: 50px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+justify-self: start;
+text-wrap: nowrap;
+}
+.contact-us-btn{
+  border-radius: 25px;
+border: 2px solid #FFF;
+background: #000;
+height: 70px;
+width: 220px;
+color: #FFF;
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+transition: all 300ms ease-out;
+}
+.contact-us-btn:hover{
+  background: #F59C42;
+color: #000;
+border: 2px solid #000;
+
+}
+.left-img{
+  position: absolute;
+  left: 0px;
+  top: 300px;
+  height: 460px;
+  width: 200px;
+}
+.right-img{
+  position: absolute;
+  right: 0px;
+  top: 180px;
+  height: 460px;
+  width: 220px;
+}

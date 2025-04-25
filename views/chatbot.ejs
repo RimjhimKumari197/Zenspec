@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../expand-chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+   
+<body>
+    <div class="main" id="fullChatbot">
+        <a href="/home"><img src="chatbot-light-Zenspec-logo.png" alt="" class="zenspec-logo"></a>
+        <button class="minimize-btn" id="minimizeBtn" ><img src="light-chatbot-minimize.png" alt="" class="minimize-btn-img"></button>
+    <div class="container">
+        <!-- App header -->
+        <header class="app-header">
+            <h1 class="heading">Hey, Buddy !</h1>
+       
+        <h2 class="sub-heading">Zenny here, <span>Let me help you...</span> <img src="light-chatbot-line.png" alt="" class="chatbotline"></h2>
+        </header>
+         <!-- chats container  -->
+         <div class="chats-container"></div>
+         <!-- prompt container -->
+         <div class="prompt-container">
+            <div class="prompt-wrapper">
+                <form action="" class="prompt-form">
+                    <input type="text" class="prompt-input" placeholder="Ask Zenny" required>
+                    <div class="prompt-action">
+                        <!-- file-upload-wrapper -->
+                        <div class="file-upload-wrapper">
+                            <img src="#" alt="" class="file-preview">
+                            <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input" hidden>
+                            <button  class="file-icon material-symbols-rounded" type="button">description</button>
+                            <button id="add-file-btn" class="material-symbols-rounded" type="button">attach_file</button>
+                            <button id="cancel-file-btn" class="material-symbols-rounded" type="button">close</button>
+
+                        </div>
+                        <button id="stop-response-btn" class="material-symbols-rounded"  type="button">stop_circle</button>
+                        <button id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
+
+                    </div>
+                </form>
+                <button id="theme-toggle-btn" class="material-symbols-rounded" >light_mode</button>
+                <button id="delete-chats-btn" class="material-symbols-rounded" >delete</button>
+                <!-- <button id="explain-chats-btn">explain</button> -->
+
+            </div>
+            <p class="disclaimer-text">Zenny may occasionally make errors, so please verify the information for accuracy.</p>
+         </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+   gsap.from("#fullChatbot", { 
+    x: "20vw", 
+    duration: 0.8, 
+    ease: "elastic.out(2, 1.5)", // Figma-like smooth transition
+    
+    onComplete: () => console.log("Chatbot transition completed")
+});
+    });
+
+    document.getElementById("minimizeBtn").addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent instant navigation
+
+    gsap.to("body", { 
+        opacity: 0,  // Fade out
+        duration: 0.3, 
+        backgroundColor:"#F3F1C1",
+        ease: "power2.out",
+        onComplete: () => {
+            window.history.back(); // Navigate back after fade-out
+        }
+    });
+});
+    
+        </script>
+    <script src="../expand-chatbot.js"></script>
+    
+</body>
+</html>

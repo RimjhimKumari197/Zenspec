@@ -1,0 +1,27 @@
+.input-wrapper{
+    position: relative;
+    height: 100px;
+  }
+  .suggestion-box ,.suggestion-box2 {
+    border: 1px solid #ccc;
+    max-height: 100px;
+    overflow-y: auto;
+    position: absolute;
+    top: 60px;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    z-index: 100;
+  }
+  .suggestion-box2{
+    top: 100px;
+  }
+  .suggestion-item {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .suggestion-item:hover {
+    background-color:#616161;
+  }
+  

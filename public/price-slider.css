@@ -1,0 +1,273 @@
+.center{
+  position: relative;
+ 
+ border-radius: 25px;
+ border: 1px solid #FFF;
+ background: #000; 
+  height: 217px; 
+ width: 330px; 
+ 
+}
+.main-price{
+ position: absolute;
+ top: -27px;
+ left: -21px;
+}
+.center h2{
+ color: #FFF;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+position: absolute;
+top: 3px;
+left: 21px;
+}
+.slider-container {
+ position: absolute;
+ top: 105.5px;
+ left: 51px;
+ width: 274px;
+ height: 12px;
+ background: #ddd;
+ border-radius: 3px;
+ margin: 20px auto;
+}
+
+.slider-track {
+ position: absolute;
+ 
+ height: 12px;
+ background: orange;
+ 
+ border-radius: 3px;
+ transition: width 0.3s ease-out;
+}
+
+
+.slider-thumb {
+ position: absolute;
+ top: -10px;
+ margin-left: -2px;
+ width: 1.5px;
+ height:35px;
+ background: #655585;
+ 
+ transition: left 0.3s ease-out;
+}
+
+/* Moving Circle */
+.moving-circle {
+ margin-left: -20px;
+ position: absolute;
+ top: -50px; 
+ width: 37px;
+ height: 37px;
+ background: #fff;
+ border-radius: 49%;
+ border: 1px solid orange ;
+ transition: left 0.3s ease-out;
+ z-index: 1;
+}
+
+/* Price Labels */
+.slider-labels {
+ position: absolute;
+ 
+ top: -37px; /* Adjust spacing */
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.price-tag {
+ font-family: poppins;
+ font-size: 10px;
+ font-weight: 500;
+ color: black;
+ opacity: 1;  /* Hidden by default */
+ transition: opacity 0.3s ease-in-out;
+}
+
+
+.range-labels{
+ position: absolute;
+ top: 70px;
+ left: -560px;
+}
+
+.range-btn{
+ border-radius: 100%;
+ background: #000;
+ border: 1px solid white;
+ height: 16px;
+ width: 16px;
+}
+.fst{
+ position: absolute;
+ top: 54px;
+ left: 601px;
+}
+.snd{
+ position: absolute;
+ top: 55px;
+ left: 738px;
+ height: 15px;
+ width: 15px;
+}
+.trd{
+ position: absolute;
+ top: 54px;
+ left: 874.5px;
+
+}
+
+.min{
+
+ position: absolute;
+ top: 0px;
+ left: -4px;
+ z-index: 2;
+ 
+}
+.mid{
+ 
+ position: absolute;
+ top: 0px;
+ left: 119.4px;
+ z-index: 2;
+
+}
+.max{
+ position: absolute;
+ top: 0px;
+ left: 257px;
+ z-index: 2;
+}
+
+/* "+" sign hidden by default */
+.plus-sign {
+ position: absolute;
+ top: 9.5px;
+ left: 10px;
+ font-family: poppins;
+ font-size: 11px;
+ color: black;
+ opacity: 1; /* Hidden initially */
+ margin-left: 3px;
+ font-weight: 500;
+}
+
+.input-box{
+ display: flex;
+ position: absolute;
+ top: 140px;
+ left: -10px;
+}
+
+.input-box input::placeholder {
+ color: #fff;
+ 
+ font-family: Poppins;
+ font-size: 10px;
+ font-style: normal;
+ font-weight: 300;
+ line-height: normal;
+
+ 
+ 
+ }
+ .input-box input{
+  
+   background: #000;
+   font-family: Poppins;
+   font-size: 10px;
+   font-style: normal;
+   font-weight: 300;
+   color: #FFF;
+   line-height: normal;
+   height: 22px;
+   width: 124px;
+   border-radius: 28px;
+ border: 1px solid #FFF;
+ padding-left: 10px;
+ }
+ .min-input{
+   
+position: absolute;
+left: 30.5px;
+ }
+ .max-input{
+  
+ position: absolute;
+ left: 183px;
+ }
+ .inp1:hover::placeholder
+ {
+ color: #000;
+ background: #fff;
+ font-size: 10px;
+ font-style: normal;
+ font-weight: 390;
+ line-height: normal; 
+  transition: all 1030ms ease-out; 
+ }
+ .inp1:hover{
+     background: #fff;
+     color: #000;
+     border: 1px solid #000;
+     font-size: 13px;
+ font-style: normal;
+ font-weight: 390;
+ line-height: normal;
+ transition: all 170ms ease-out; 
+ 
+ }
+ 
+.min-input::-webkit-inner-spin-button,
+.max-input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+.dash{
+ width: 5px;
+ height: 2px;
+ background: #FFF;
+ position: absolute;
+ left: 173px;
+ top: 12px;
+}
+.tick-box{
+ position: absolute;
+ top: 40px;
+ left: 161px;
+ top: 37px;
+
+}
+
+.clear-btn{
+ position: absolute;
+ top: 20px;
+ right: 20px;
+
+}
+.clear-btn img{
+ height: 17px;
+ width: 17px;
+}
+.tick-box{
+ position: absolute;
+ left: 164px;
+ width: 26px;
+ height: 26px;
+ background-image: url("/tick\ mark\ 1\ \(4\).png");
+ background-size: cover;
+ transition: background-image 0.3s ease-in-out; 
+ background-color: transparent;
+ border: none;
+}
+.tick-box:hover {
+ background-image: url("/tick\ mark-hover.png");
+}

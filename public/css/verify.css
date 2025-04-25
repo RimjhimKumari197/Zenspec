@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html,body{
+    background: #000;
+  }
+  .main-container{
+    background-image: url('../images/userbg.png'); 
+    background-size: 100vw 100vh; 
+    /* background-position: center;  */
+    background-repeat: no-repeat; 
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: center;
+     align-items: center;
+  }
+  .logo{
+    position: absolute;
+    top: 10px;
+    left:10px;
+  }
+  .logo img{
+    height: 90px;
+    width: 90px;
+  }
+  .verify-form{
+    
+    position: relative;
+    top: 130px;
+  }
+  .code-label{
+    color: #FFF;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 20px;
+  }
+  .code-input{
+    width: 430px;
+  height: 65px;
+  border-radius: 23px;
+  border: 1px solid #FFFDFD;
+  padding-left:15px;
+  background: #000;
+  color: #616161;
+  font-family: Poppins;
+  font-size: 16.5px;
+  font-style: normal;
+  font-weight: 280;
+  line-height: normal;
+  margin-bottom: 25px;
+  transition: background-color 300ms ease-out;
+  }
+  .code-explanation{
+    color: #6F6D6D;
+  font-family: Poppins;
+  font-size: 16.5px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  left: -25px;
+  right: 10px;
+  /* margin-right: 50px; */
+  /* padding-right: 6px; */
+  line-height: normal;
+  width: 480px;
+  }
+  .verify-btn{
+    border-radius: 23px;
+  border: 1px solid #FFF;
+  width: 200px;
+  height: 60px;
+  background: #F59C42;
+  color: #000;
+  font-family: Poppins;
+  font-size: 16.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0 20px;
+  margin-top: 70px ;
+  margin-bottom: 150px;
+  margin-left: 100px;
+  transition: background-color 300ms ease-out;
+  
+  }
+  .code-input:hover{
+    background: #FFF;
+  }
+  .verify-btn:hover{
+    background-color: #000;
+    color: #FFF;
+  }
+  .flash{
+    position: absolute;
+    bottom: 0px;
+    width: 50px;
+  }
+  .flash{
+    position: absolute;
+    top: 0px;
+    width: 1000px;
+  }
+  input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    background-color: white !important;
+    color: #616161 !important;
+    -webkit-text-fill-color: #616161 !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}

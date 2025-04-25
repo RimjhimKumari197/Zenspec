@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Log in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="../../css/loginsignup.css" />
+  </head>
+  <body>
+    <div class="main-container"  id="page">
+      <div class="flash"><%- include("../includes/flash.ejs") %></div>
+
+      <div class="logo"><img class="logo-img" src="../../images/Zenspeclogo.png" alt=""></div>
+       
+      <div class="main">
+        <div class="container"><p>You are one step closer <br>to find a </p> <p><span>Perfect gadget!</span></p>
+          <hr>
+      </div>
+       
+        
+          <div class="input">
+            <form action="/login" method="get"><button class="log-in" id="but1">Log in</button> </form>
+         <form action="/signup" method="get"> <button class="sign-up" id="but2">Sign up</button></form>
+        </div>
+        </form>
+        
+         
+      </div>
+      <div class="torch" id="hiddenDiv_up"><img class="torch-img-up" src="../../images/downtorch.png" alt=""></div>
+      <div class="torch" id="hiddenDiv_down"><img class="torch-img-down" src="../../images/uptorch.png"alt=""></div>
+ 
+       </div>
+        <script src="../../js/loginsignup.js"></script>
+    <script src="../../js/fixinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="../../js/pageload.js"></script>
+    
+  </body>
+</html>

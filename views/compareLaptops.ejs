@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/laptop-compare.css">
+    <link rel="stylesheet" href="/laptop-compare-specification.css">
+    <link rel="stylesheet" href="/laptop-compare-proscons.css">
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    <link rel="stylesheet" href="/searchbox.css">
+</head>
+<body>
+    <div class="header"> 
+        <header>
+        <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+        <div class="middle"> <nav>
+             <ul class="nav-links">
+            <li><form action="/search">
+                <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                <div class="suggestion-box" id="suggestions1"></div>
+
+                </input>
+            </div>
+        </form></li>
+            <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+            <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+            <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+            <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+            <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+             </ul> 
+        </nav></div>
+        <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+    </header>
+    <div class="dropdown-profile">
+       
+       
+        <div class="dropdown-content-profile" id="dropdown-content-profile">
+            <div class="triangle"></div>
+            <div class="order-list" >
+               <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+               <hr class="one">
+               <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+               <hr class="two">
+               <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+               <hr class="three">
+               <a href="/logout"> <span class="log" id="log">Log out</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+<form action="/chatbot" method="get">
+<button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+<div class="container2">
+   
+    <!-- App header -->
+    <div class="app-header2">
+        <div class="heading2">Hey, Buddy !</div>
+        <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+    </div>
+    <!-- button list -->
+     <button class="explain">Explain the page.</button><br>
+     <button class="summarize">Summarize the page.</button>
+     <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+     <!-- chats container2  -->
+     <div class="chats-container2"></div>
+     <!-- prompt container2 -->
+     <div class="prompt-container2">
+        <div class="prompt-wrapper2">
+            <form action="" class="prompt-form2">
+                <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                <div class="prompt-action2">
+                    <!-- file-upload-wrapper -->
+                    <div class="file-upload-wrapper2">
+                        <img src="#" alt="" class="file-preview2">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                        <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                        <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                        <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                    </div>
+                    <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                    <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                </div>
+            </form>
+            <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+            <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+            <!-- <button id="explain-chats-btn">explain</button> -->
+
+        </div>
+        
+     </div>
+    </div>
+
+
+</div>
+<div class="main">
+    <img src="/main-compare-left.png" alt="" class="main-compare-left">
+    <img src="/main-compare-right.png" alt="" class="main-compare-right">
+    <div class="main-heading">Woohoo... <span>Let’s compare !</span> <img src="/compare-detail-smily.png" alt="" class="smily"></div>
+    <div class="compare-wrapper">
+        <div class="image-wrapper">
+            <div class="device-1">
+                <img src="<%= laptop1.Imgurl %>" alt="" class="device1-img">
+                <div class="device1-name"><%= laptop1.Product_name %></div>
+            </div>
+            <div class="device-2">
+                <img src="<%= laptop2.Imgurl %>" alt="" class="device2-img">
+                <div class="device2-name"><%= laptop2.Product_name %></div>
+            </div>
+        </div>
+        <div class="specification-wrapper">
+            <div class="specification-heading"><span>Specifications</span></div>
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Case</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Weight</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Weight %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Weight %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Dimensions</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% laptop1.Dimensions.forEach(element => { %>
+                         
+                            <div><%= element %></div>
+                        <% }) %>
+                        
+                    </div>
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% laptop2.Dimensions.forEach(element => { %>
+                         
+                            <div><%= element %></div>
+                        <% }) %>
+                    </div>
+                </div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Area</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Area %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Area %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Screen-to-body ratio</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Screen_to_body_ratio %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Screen_to_body_ratio %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Side bezels</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Side_bezels %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Side_bezels %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Colors</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Colors %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Colors %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Material</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Material%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Material%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Transformer</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Transformer%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Transformer%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Opening angle</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Opening_angle%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Opening_angle%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Cooling system</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Cooling_system%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Cooling_system%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Vapor chamber</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Vapor_chamber%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop1.Vapor_chamber%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Liquid metal</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Liquid_metal%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Liquid_metal%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Number of fans</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Number_of_fans%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Number_of_fans%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Noise level (max. load)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Noise_level%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Noise_level%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+
+
+            <div class="specs-sub-heading">Display</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_size%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_size%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_type%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_type%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Refresh rate</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_refresh_rate%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_refresh_rate%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Adaptive refresh rate</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_adaptive_refresh_rate%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_adaptive_refresh_rate%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">PPI</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_PPI%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_PPI%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Aspect ratio</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_aspect_ratio%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_aspect_ratio%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Resolution</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_resolution%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_resolution%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">HDR support</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_HDR_support%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_HDR_support%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Sync technology</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_sync_technology%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_sync_technology%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Touchscreen</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_touchscreen%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_touchscreen%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Coating</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_coating%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_coating%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Ambient light sensor</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Display_ambient_light_sensor%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Display_ambient_light_sensor%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Battery</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Capacity</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_capacity%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_capacity%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Full charging time</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_full_charging_time%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_full_charging_time%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Battery type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_type%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_type%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Replaceable</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_replaceable%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper" ><%= laptop2.Battery_replaceable%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Fast charging</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_fast_charging%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_fast_charging%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Charging via USB (Power Delivery)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_Charging_via_USB%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_Charging_via_USB%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Charging port position</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_charging_port_position%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_charging_port_position%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Charge power</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_charge_power%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_charge_power%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Cable length</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_cable_length%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_cable_length%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Weight of AC adapter</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Battery_Weight_of_AC_adapter%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Battery_Weight_of_AC_adapter%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">CPU</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">CPU name</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_name%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_name%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Base frequency</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_base_frequency%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_base_frequency%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Turbo frequency</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_turbo_frequency%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_turbo_frequency%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Cores</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_cores%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_cores%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Threads</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_threads%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_threads%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">L3 Cache</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_cache%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_cache%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Integrated GPU</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_integrated_GPU%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_integrated_GPU%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Fabrication process</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.CPU_fabrication_process%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.CPU_fabrication_process%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Graphics Card</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">GPU name</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_GPU_name%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_GPU_name%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">TGP</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_TGP%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_TGP%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_Type%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_Type%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Fabrication process</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_fabrication_process%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_fabrication_process%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">GPU base clock</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_GPU_base_clock%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_GPU_base_clock%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">GPU boost clock</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_GPU_boost_clock%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_GPU_boost_clock%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">FLOPS</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_FLOPS%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_FLOPS%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Memory size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_memory_size%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_memory_size%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Memory type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_memory_type%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_memory_type%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Memory bus</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_memory_bus%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_memory_bus%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Memory speed</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_memory_speed%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_memory_speed%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Shading units (cores)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_shading_units%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_shading_units%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Texture mapping units (TMUs)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_texture_mapping_units%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_texture_mapping_units%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Raster operations pipelines (ROPs)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Gc_raster_operations_pipelines%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Gc_raster_operations_pipelines%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">RAM</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">RAM size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.RAM_size%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.RAM_size%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Channels</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.RAM_channels%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.RAM_channels%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Clock</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.RAM_clock%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.RAM_clock%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.RAM_type%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.RAM_type%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Upgradable</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.RAM_upgradable%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.RAM_upgradable%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Storage</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Storage size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Storage_size%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Storage_size%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Bus</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Storage_bus%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Storage_bus%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Storage type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Storage_type%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Storage_type%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Channels</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Storage_channels%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Storage_channels%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Upgradable</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Storage_upgradable%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Storage_upgradable%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Total slots</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Storage_total_slots%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Storage_total_slots%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">NVMe</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Storage_NVMe%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Storage_NVMe%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Sound</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Speakers</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Sound_speakers%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Sound_speakers%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Power</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Sound_power%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Sound_power%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Dolby Atmos</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Sound_Dolby_Atmos%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Sound_Dolby_Atmos%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Loudness</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Sound_loudness%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Sound_loudness%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Microphones</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Sound_microphone%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Sound_microphone%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Connectivity</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Wi-Fi standard</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.WiFi_standard%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.WiFi_standard%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Bluetooth</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Bluetooth%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Bluetooth%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Fingerprint</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Fingerprint%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Fingerprint%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Infrared sensor</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Infrared_sensor%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Infrared_sensor%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Optical drive</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Optical_drive%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Optical_drive%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Webcam</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Webcam%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Webcam%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Webcam resolution</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Webcam_resolution%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Webcam_resolution%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Ports</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">USB-A</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_USB_A%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_USB_A%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">USB Type-C</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_USB_Type_C%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_USB_Type_C%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Thunderbolt</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_Thunderbolt%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_Thunderbolt%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">HDMI</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_HDMI%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_HDMI%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">DisplayPort</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_DisplayPort%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_DisplayPort%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">VGA</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_VGA%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_VGA%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Audio jack (3.5 mm)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_audio_jack%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_audio_jack%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Ethernet (RJ45)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_Ethernet%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_Ethernet%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">SD card reader</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_SD_card_reader%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_SD_card_reader%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Proprietary charging port</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Port_proprietary_charging_port%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Port_proprietary_charging_port%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Input</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Keyboard type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Input_keyboard_type%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Input_keyboard_type%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Numpad</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Input_numpad%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Input_numpad%></div></div>
+
+            </div>
+            
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Backlight</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Input_backlight%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Input_backlight%></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Key travel</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Input_key_travel%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Input_key_travel%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Touchpad</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Touchpad_size%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Touchpad_size%></div></div>
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Surface</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Touchpad_surface%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Touchpad_surface%></div></div>
+
+            </div>
+            <div class="specs last specs-last">
+                <div class="specs-heading"><div class="value-wrapper">Windows Precision</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Touchpad_windows_precision%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Touchpad_windows_precision%></div></div>
+
+            </div>
+            
+
+
+        </div>
+        
+        <div class="benchmark-wrapper">
+            <div class="benchmark-heading"><span>Benchmarks & Display tests</span></div>
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Benchmarks</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Geekbench 6 (Single-Core)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Geekbench_single_core%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Geekbench_single_core%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Geekbench 6 (Multi-Core)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Geekbench_multi_core%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Geekbench_multi_core%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Cinebench R23 (Single-Core)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Cinebench_single_core%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Cinebench_single_core%></div></div>
+
+            </div>
+            
+           
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Cinebench R23 (Multi-Core)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Cinebench_multi_core%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Cinebench_multi_core%></div></div>
+
+            </div>
+            <div class="partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Display tests</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Contrast</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Dt_Contrast%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Dt_Contrast%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">sRGB color space</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Dt_sRGB_color_space%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Dt_sRGB_color_space%></div></div>
+
+            </div>
+            <div class="specs last division">
+                <div class="specs-heading"><div class="value-wrapper">Adobe RGB profile</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Dt_Adobe_RGB_profile%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Dt_Adobe_RGB_profile%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">DCI-P3 color gamut</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Dt_DCI_color_gamut%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Dt_DCI_color_gamut%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Response time</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Dt_Response_time%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Dt_Response_time%></div></div>
+
+            </div>
+            <div class="specs last specs-last">
+                <div class="specs-heading"><div class="value-wrapper">Max. brightness</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Dt_Max_brightness%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Dt_Max_brightness%></div></div>
+
+            </div>
+            
+            
+        </div>
+        <div class="disclaimer"><span>Disclaimer*</span>We can not guarantee that the information on this page is 100% correct.</div>
+        <div class="highlight-wrapper">
+            <div class="highlight-heading"><span>Highlights</span></div>
+            
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Release date</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= laptop1.Release_date%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= laptop2.Release_date%></div></div>
+
+            </div>           
+            <div class="specs last specs-last">
+                <div class="specs-heading"><div class="value-wrapper">Buying links</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% if (laptop1.Amazon_link=="-"&&laptop1.Flipkart_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="#" class="link">-</a></div>
+                        <% } else if (laptop1.Amazon_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="<%= laptop1.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } else if (laptop1.Flipkart_link=="-") { %>
+                        <div><a href="<%= laptop1.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="#" class="link">-</a></div>
+                         
+                         
+                        <% }else{ %>
+                        <div><a href="<%= laptop1.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="<%= laptop1.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } %>
+
+                    </div>
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% if (laptop2.Amazon_link=="-"&&laptop2.Flipkart_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="#" class="link">-</a></div>
+                        <% } else if (laptop2.Amazon_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="<%= laptop2.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } else if (laptop2.Flipkart_link=="-") { %>
+                        <div><a href="<%= laptop2.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="#" class="link">-</a></div>
+                         
+                         
+                        <% }else{ %>
+                        <div><a href="<%= laptop2.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="<%= laptop2.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } %>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            
+        </div>
+        <div class="proscons-wrapper">
+            <div class="proscons-heading"><span>Pros & Cons</span></div>
+            <div class="device1-pros-heading">Pros (<%= laptop1.Product_name %>)</div>
+            <div class="device1-pros-list">
+                <ul class="pros-list">
+                <% laptop1.Pros.forEach(element => { %>
+                    <li> <%= element %></li>
+                <% }) %>
+                </ul>
+            </div>
+            <div class="device1-cons-heading">Cons (<%= laptop1.Product_name %>)</div>
+            <div class="device1-cons-list">
+                <ul class="cons-list">
+                    <% laptop1.Cons.forEach(element => { %>
+                        <li> <%= element %></li>
+                    <% }) %>
+                    </ul>
+                </ul>
+            </div>
+            <div class="proscons-partition"><img src="compare-partition.png" alt="" class="compare-partition"></div>
+
+            <div class="device2-pros-heading ">Pros (<%= laptop2.Product_name %>)</div>
+            <div class="device2-pros-list">
+                <ul class="pros-list">
+                    <% laptop2.Pros.forEach(element => { %>
+                        <li> <%= element %></li>
+                    <% }) %>
+                    </ul>
+                </ul>
+            </div>
+            <div class="device2-cons-heading">Cons (<%= laptop2.Product_name %>)</div>
+            <div class="device2-cons-list">
+                <ul class="cons-list cons-list-device2">
+                    <% laptop2.Cons.forEach(element => { %>
+                        <li> <%= element %></li>
+                    <% }) %>
+                    </ul>
+                </ul>
+            </div>
+
+            
+            
+            
+        </div>
+        <div class="term-explanation">
+            <div class="term-explain-text">Didn’t understand any term or specifications</div>
+            <img src="/main-compare-arrow.png" alt="" class="main-compare-arrow">
+           <form action="" class="zenny-form">
+               <button class="zenny-btn"><span class="ask-text">Ask Zenny!</span><img src="/zennylogo-btn-main-compare.png" alt="" class="button-zenny"></button>
+            </form>
+        </div>
+        <div class="quote">
+                    
+            <img src="/compare-quote.png" alt="" class="quote-text">
+           
+        </div>
+        <img src="/main-compare-end.png" alt="" class="bottom-end">
+
+        
+    </div>
+    
+</div>
+<div class="footer">  <hr>
+    <footer>
+       
+    <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+    
+    <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+ 
+    <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+     <div class="overlay"></div></div>
+ 
+    
+ 
+    <div class="social">
+     <button><i class="fa-brands fa-facebook"></i></button>
+     <button><i class="fa-brands fa-linkedin"></i></button>  
+     <button><i class="fa-brands fa-youtube"></i></button> 
+     <button><i class="fa-brands fa-instagram"></i></button> 
+  </div>
+ </div>
+    </footer>
+ </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="/profile.js"></script>
+<script src="/chatbot.js"></script>
+<script src="/searchbox.js"></script>
+<script src="/logout.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.querySelector(".zenny-btn");
+      const text = document.querySelector(".ask-text");
+      const gif = document.querySelector(".button-zenny");
+      button.addEventListener("mouseenter", () => {
+        
+        gsap.to(text, { x: 60, duration: 0.1, ease: "power2.out" }); // Moves text to the right
+        gsap.to(gif, { x: -150, opacity: 1, duration: 0.1, ease: "power2.out" ,
+          
+        });
+      });
+  
+      button.addEventListener("mouseleave", () => {
+        gsap.to(text, { x: 0, duration: 0.1, ease: "power2.out" }); // Reset text position
+        // gsap.to(gif, { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" }); // Reset GIF position & opacity
+        gsap.to(gif, { x: 0, opacity: 1, duration: 0.1, ease: "power2.out" ,
+          
+        });
+      });
+    });
+  </script>
+</body>
+</html>

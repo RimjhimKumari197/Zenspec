@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/phone-compare.css">
+    <link rel="stylesheet" href="/phone-compare-specification.css">
+    <link rel="stylesheet" href="/compare-proscons-phone.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/searchbox.css">
+
+</head>
+<body>
+    <div class="header"> 
+        <header>
+        <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+        <div class="middle"> <nav>
+             <ul class="nav-links">
+            <li><form action="/search">
+                <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                <div class="suggestion-box" id="suggestions1"></div>
+
+                </input>
+            </div>
+        </form></li>
+            <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+            <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+            <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+            <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+            <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+             </ul> 
+        </nav></div>
+        <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+    </header>
+    <div class="dropdown-profile">
+       
+       
+        <div class="dropdown-content-profile" id="dropdown-content-profile">
+            <div class="triangle"></div>
+            <div class="order-list" >
+               <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+               <hr class="one">
+               <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+               <hr class="two">
+               <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+               <hr class="three">
+               <a href="/logout"> <span class="log" id="log">Log out</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+<form action="/chatbot" method="get">
+<button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+<div class="container2">
+   
+    <!-- App header -->
+    <div class="app-header2">
+        <div class="heading2">Hey, Buddy !</div>
+        <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+    </div>
+    <!-- button list -->
+     <button class="explain">Explain the page.</button><br>
+     <button class="summarize">Summarize the page.</button>
+     <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+     <!-- chats container2  -->
+     <div class="chats-container2"></div>
+     <!-- prompt container2 -->
+     <div class="prompt-container2">
+        <div class="prompt-wrapper2">
+            <form action="" class="prompt-form2">
+                <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                <div class="prompt-action2">
+                    <!-- file-upload-wrapper -->
+                    <div class="file-upload-wrapper2">
+                        <img src="#" alt="" class="file-preview2">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                        <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                        <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                        <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                    </div>
+                    <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                    <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                </div>
+            </form>
+            <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+            <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+            <!-- <button id="explain-chats-btn">explain</button> -->
+
+        </div>
+        
+     </div>
+    </div>
+
+
+</div>
+<div class="main">
+    <img src="/main-compare-left.png" alt="" class="main-compare-left">
+    <img src="/main-compare-right.png" alt="" class="main-compare-right">
+    <div class="main-heading">Woohoo... <span>Let’s compare !</span> <img src="/compare-detail-smily.png" alt="" class="smily"></div>
+    <div class="compare-wrapper">
+        <div class="image-wrapper">
+            <div class="device-1">
+                <img src="<%= phone1.Imgurl %>" alt="" class="device1-img">
+                <div class="device1-name"><%= phone1.Product_name %></div>
+            </div>
+            <div class="device-2">
+                <img src="<%= phone2.Imgurl %>" alt="" class="device2-img">
+                <div class="device2-name"><%= phone2.Product_name %></div>
+            </div>
+        </div>
+        <div class="specification-wrapper">
+            <div class="specification-heading"><span>Specifications</span></div>
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Display</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Display_type %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Display_type %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Display_size %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Display_size %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Resolution</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Display_resolution %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Display_resolution %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Aspect ratio</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Aspect_ratio %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Aspect_ratio %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">PPI</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.PPI %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.PPI %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Refresh rate</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Refresh_rate %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Refresh_rate %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Adaptive refresh rate</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Adaptive_refresh_rate %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Adaptive_refresh_rate %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Max rated brightness</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Max_rated_brightness%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Max_rated_brightness%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Max rated brightness in HDR</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Max_rated_brightness_in_HDR%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Max_rated_brightness_in_HDR%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">HDR support</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.HDR_support%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.HDR_support%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Touch sampling rate</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Touch_sampling_rate%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Touch_sampling_rate%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Screen protection</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Screen_protection%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Screen_protection%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Screen-to-body ratio</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Screen_to_body_ratio%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Screen_to_body_ratio%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Display features</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.Display_features.forEach(element => { %>
+                        <div><%=element%></div>
+                         
+                        <% }) %>
+                       
+                    </div>
+                    
+
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.Display_features.forEach(element => { %>
+                            <div><%=element%></div>
+                             
+                            <% }) %>
+                           
+                    </div>
+                </div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">RGB color space</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.RGB_color_space %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.RGB_color_space %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">PWM</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.PWM %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.PWM %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Response time</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Response_time %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Response_time %></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Contrast</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Contrast %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Contrast %></div></div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Design and build</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Height</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Height %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Height %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Width</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Width %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Width %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Thickness</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Thickness %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Thickness %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Weight</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Weight %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Weight %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Waterproof</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Waterproof %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Waterproof %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Advanced cooling</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Advanced_cooling %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Advanced_cooling %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Rear material</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Rear_material %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Rear_material %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Frame material</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Frame_material %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Frame_material %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Colors</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Colors %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Colors %></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Fingerprint scanner</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Fingerprint_scanner %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Fingerprint_scanner %></div></div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Memory</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">RAM size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.RAM_size %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.RAM_size %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Memory type (RAM)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Memory_type_RAM %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Memory_type_RAM %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Memory clock (RAM)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Memory_clock_RAM %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Memory_clock_RAM %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Channels (RAM)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Channels_RAM %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper" ><%= phone2.Channels_RAM %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Storage size (ROM)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Storage_size_ROM %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Storage_size_ROM %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Storage type (ROM)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Storage_type_ROM %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Storage_type_ROM %></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Memory card</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Memory_card %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Memory_card %></div></div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Software</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Operating system</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Operating_system %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Operating_system %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">ROM</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.ROM %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.ROM %></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">OS size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.OS_size %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.OS_size %></div></div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Battery</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Capacity</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Capacity %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Capacity %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Max charge power</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Max_charge_power %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Max_charge_power %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Battery type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Battery_type %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Battery_type %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Replaceable</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Replaceable %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Replaceable %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Wireless charging</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Wireless_charging %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Wireless_charging %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Reverse charging</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Reverse_charging %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Reverse_charging %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Fast charging</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Fast_charging %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Fast_charging %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Full charging time</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Full_charging_time %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Full_charging_time %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Web browsing</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Web_browsing %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Web_browsing %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Watching video</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Watching_video %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Watching_video %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Gaming</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Gaming %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Gaming %></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Standby</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Standby %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Standby %></div></div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Connectivity</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Wi-Fi standard</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.WiFi_standard %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.WiFi_standard %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Wi-Fi features</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.WiFi_features.forEach(element => { %>
+                        <div><%=element%></div>
+                         
+                        <% }) %>
+                    </div>
+                    
+
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% phone2.WiFi_features.forEach(element => { %>
+                            <div><%=element%></div>
+                             
+                            <% }) %>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Bluetooth version</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Bluetooth_version %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Bluetooth_version %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Bluetooth features</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Bluetooth_features %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Bluetooth_features %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">USB type</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.USB_type %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.USB_type %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">USB version</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.USB_version %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.USB_version %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">USB features</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.USB_features.forEach(element => { %>
+                        <div><%= element %></div>
+                         
+                        <% }) %>
+                    </div>
+                    
+
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.USB_features.forEach(element => { %>
+                            <div><%= element %></div>
+                             
+                            <% }) %>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">DisplayPort</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.DisplayPort %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.DisplayPort %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">GPS</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.GPS %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.GPS %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">NFC</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.NFC %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.NFC %></div></div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Infrared port</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Infrared_port %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Infrared_port %></div></div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Sound</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Speakers</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Speakers %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Speakers %></div></div>
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Headphone audio jack</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Headphone_audio_jack %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Headphone_audio_jack %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">FM radio</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.FM_radio %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.FM_radio %></div></div>
+
+            </div>
+            <div class="specs last specs-last">
+                <div class="specs-heading"><div class="value-wrapper">Dolby Atmos</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Dolby_Atmos %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Dolby_Atmos %></div></div>
+
+            </div>
+            
+
+
+        </div>
+        <div class="camera-wrapper">
+            <div class="camera-heading"><span>Camera</span></div>
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Main camera</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Matrix</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_Matrix %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_Matrix %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_Image_resolution %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_Image_resolution %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Zoom</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_Zoom %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_Zoom %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Flash</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_Flash %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_Flash %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_Stabilization %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_Stabilization %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">8K video recording</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_eightk_video_recording %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_eightk_video_recording %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">4K video recording</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_fourk_video_recording %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_fourk_video_recording %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">1080p video recording</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_ten_eighty_p_video_recording %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_ten_eighty_p_video_recording %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Slow motion</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_Slow_motion %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_Slow_motion %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Angle of widest lens</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Main_Angle_of_widest_lens %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Main_Angle_of_widest_lens %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Lenses</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.Main_Lenses.forEach(element => { %>
+                            <div><%= element %></div>
+                        <% }) %>
+                    </div>
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% phone2.Main_Lenses.forEach(element => { %>
+                            <div><%= element %></div>
+                        <% }) %>
+                    </div>
+                </div>
+
+            </div>
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">Camera features</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.Main_Camera_features.forEach(element => { %>
+                            <div><%= element %></div>
+                        <% }) %>
+                    </div>
+                    
+
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% phone2.Main_Camera_features.forEach(element => { %>
+                            <div><%= element %></div>
+                        <% }) %>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+
+            
+            <% if (phone1.Camera_lens.includes("-")&&phone2.Camera_lens.includes("-")) { %>
+                <% ["Standard lens","Telephoto lens","Ultra-wide lens"].forEach(element => { %>
+                    <hr class="compare-hr">
+                    <div class="specs-sub-heading"><%= element %></div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Aperture</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Focal length</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Sensor</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Sensor size</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Pixel size</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Autofocus</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="specs last">
+                        <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+        
+                    </div>
+                    <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+        
+                <% }) %>
+             
+            <% } else if (phone1.Camera_lens.includes("-")) { %>
+                <% for( let index = 1; index <= phone2.Camera_lens.length; index++ ) { %>
+                    <hr class="compare-hr">
+                    <div class="specs-sub-heading"><%= phone2.Camera_lens[index-1] %></div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][0] %></div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Aperture</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][1] %></div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Focal length</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][2] %></div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Sensor</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][3] %></div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Sensor size</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][4] %></div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Pixel size</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][5] %></div></div>
+        
+                    </div>
+                    <div class="specs">
+                        <div class="specs-heading"><div class="value-wrapper">Autofocus</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][6] %></div></div>
+        
+                    </div>
+                    <div class="specs last">
+                        <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                        <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                        <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index-1][index][7] %></div></div>
+        
+                    </div>
+                    <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+        
+                
+                <% } %>
+                
+
+                <% } else if (phone2.Camera_lens.includes("-")) { %>
+                    <% for( let index = 1; index <= phone1.Camera_lens.length; index++ ) { %>
+                        <hr class="compare-hr">
+                        <div class="specs-sub-heading"><%= phone1.Camera_lens[index-1] %></div>
+                        <div class="specs">
+                            <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][0] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="specs">
+                            <div class="specs-heading"><div class="value-wrapper">Aperture</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][1] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="specs">
+                            <div class="specs-heading"><div class="value-wrapper">Focal length</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][2] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="specs">
+                            <div class="specs-heading"><div class="value-wrapper">Sensor</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][3] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="specs">
+                            <div class="specs-heading"><div class="value-wrapper">Sensor size</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][4] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="specs">
+                            <div class="specs-heading"><div class="value-wrapper">Pixel size</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][5] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="specs">
+                            <div class="specs-heading"><div class="value-wrapper">Autofocus</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][6] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="specs last">
+                            <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                            <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index-1][index][7] %></div></div>
+                            <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+            
+                        </div>
+                        <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+            
+                    
+                    <% } %>
+                    
+    
+                    <% } else { %>
+                        <%phone1.Camera_lens.forEach(element => { %>
+                            <% if (phone2.Camera_lens.includes(element)) { %>
+                                <hr class="compare-hr">
+                                <div class="specs-sub-heading"><%= element %></div>
+                                <% index1= phone1.Camera_lens.indexOf(element)+1%>
+                                <% index2= phone2.Camera_lens.indexOf(element)+1
+
+                                %>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][0] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][0] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Aperture</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][1] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][1] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Focal length</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][2] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][2] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Sensor</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][3] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][3] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Sensor size</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][4] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][4] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Pixel size</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][5] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][5] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Autofocus</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][6] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][6] %></div></div>
+                    
+                                </div>
+                                <div class="specs last">
+                                    <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][7] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][7] %></div></div>
+                    
+                                </div>
+                                <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+                    
+                            
+                            <% } else if(!phone2.Camera_lens.includes(element)){ %>
+                                <% index1= phone1.Camera_lens.indexOf(element)+1%>
+
+                                <hr class="compare-hr">
+                                <div class="specs-sub-heading"><%= element %></div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][0] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Aperture</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][1] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Focal length</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][2] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Sensor</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][3] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Sensor size</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][4] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Pixel size</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][5] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Autofocus</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][6] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="specs last">
+                                    <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Lens_info[index1-1][index1][7] %></div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper">-</div></div>
+                    
+                                </div>
+                                <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+                                 <%}%>
+                        <% }) %>
+
+                        <%phone2.Camera_lens.forEach(element => { %>
+                            <% if (!phone1.Camera_lens.includes(element)) { %>
+                                <hr class="compare-hr">
+                                <div class="specs-sub-heading"><%= element %></div>
+                                <% index1= phone1.Camera_lens.indexOf(element)+1%>
+                                <% index2= phone2.Camera_lens.indexOf(element)+1
+
+                                %>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][0] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Aperture</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][1] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Focal length</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][2] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Sensor</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][3] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Sensor size</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][4] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Pixel size</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][5] %></div></div>
+                    
+                                </div>
+                                <div class="specs">
+                                    <div class="specs-heading"><div class="value-wrapper">Autofocus</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][6] %></div></div>
+                    
+                                </div>
+                                <div class="specs last">
+                                    <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                                    <div class="device1-specs-value"><div class="value-wrapper">-</div></div>
+                                    <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Lens_info[index2-1][index2][7] %></div></div>
+                    
+                                </div>
+                                <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+                    
+                            <%}%>
+
+                        <%})%>
+                        
+                     <% } %>
+                
+            
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Selfie camera</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Megapixels</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Megapixels %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Megapixels %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Image resolution</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Image_resolution %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Image_resolution %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Aperture</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Aperture%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Aperture%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Focal length</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Focal_length%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Focal_length%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Sensor</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Sensor%></div></div>
+                <div class="device2-specs-value"><div  class="value-wrapper"><%= phone2.Selfie_Sensor%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Sensor size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Sensor_size%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Sensor_size%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Pixel size</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Pixel_size%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Pixel_size%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Autofocus</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Autofocus%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Autofocus%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Stabilization</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Stabilization%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Stabilization%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Video resolution</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Video_resolution%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Video_resolution%></div></div>
+
+            </div>
+           
+            <div class="specs last specs-last">
+                <div class="specs-heading"><div class="value-wrapper">Depth sensor (TOF 3D)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Selfie_Depth_sensor_TOF%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Selfie_Depth_sensor_TOF%></div></div>
+
+            </div>
+        </div>
+        <div class="benchmark-wrapper">
+            <div class="benchmark-heading"><span>Performance & Benchmarks</span></div>
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">SoC</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Chipset</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_Chipset%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_Chipset%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Max clock</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_Max_clock%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone1.Soc_Max_clock%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">CPU cores</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_CPU_cores%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_CPU_cores%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Architecture</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% phone1.Soc_Architecture.forEach(element => { %>
+                            <div><%= element %></div>
+                        <% }) %>
+                    </div>
+                    
+
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% phone2.Soc_Architecture.forEach(element => { %>
+                            <div><%= element %></div>
+                        <% }) %>   
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Manufacturing</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_Manufacturing %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_Manufacturing %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Lithography process</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_Lithography_process %></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_Lithography_process %></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Neural processor (NPU)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_Neural_processor_NPU%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_Neural_processor_NPU%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Graphics</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_Graphics%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_Graphics%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">GPU shading units</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_GPU_shading_units%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_GPU_shading_units%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">GPU clock</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_GPU_clock%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_GPU_clock%></div></div>
+
+            </div>
+           
+            <div class="specs last">
+                <div class="specs-heading"><div class="value-wrapper">FLOPS</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Soc_FLOPS%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Soc_FLOPS%></div></div>
+
+            </div>
+            <div class="partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+
+            <hr class="compare-hr">
+            <div class="specs-sub-heading">Benchmarks</div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Geekbench Compute (GPU)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_Geekbench_Compute_GPU%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_Geekbench_Compute_GPU%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Single-core score</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_Single_core_score%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_Single_core_score%></div></div>
+
+            </div>
+            <div class="specs last division">
+                <div class="specs-heading"><div class="value-wrapper">Multi-core score</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_Multi_core_score%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_Multi_core_score%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">AnTuTu Benchmark 10 (CPU)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_AnTuTu_Benchmark_CPU%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_AnTuTu_Benchmark_CPU%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">AnTuTu Benchmark 10 (GPU)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_AnTuTu_Benchmark_GPU%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_AnTuTu_Benchmark_GPU%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">AnTuTu Benchmark 10 (Memory)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_AnTuTu_Benchmark_Memory%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_AnTuTu_Benchmark_Memory%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">AnTuTu Benchmark 10 (UX)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_AnTuTu_Benchmark_UX%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_AnTuTu_Benchmark_UX%></div></div>
+
+            </div>
+            <div class="specs last specs-last">
+                <div class="specs-heading"><div class="value-wrapper">Total score (AnTuTu Benchmark 10)</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Benchmark_Total_score_AnTuTu_Benchmark%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Benchmark_Total_score_AnTuTu_Benchmark%></div></div>
+
+            </div>
+            
+            
+        </div>
+        <div class="disclaimer"><span>Disclaimer*</span>We can not guarantee that the information on this page is 100% correct.</div>
+        <div class="highlight-wrapper">
+            <div class="highlight-heading"><span>Highlights</span></div>
+            <div class="specs highlight">
+                <div class="specs-heading"><div class="value-wrapper">Category</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Highlight_Category%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Highlight_Category%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Announced</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Highlight_Announced%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Highlight_Announced%></div></div>
+
+            </div>
+            <div class="specs">
+                <div class="specs-heading"><div class="value-wrapper">Release date</div></div>
+                <div class="device1-specs-value"><div class="value-wrapper"><%= phone1.Highlight_Release_date%></div></div>
+                <div class="device2-specs-value"><div class="value-wrapper"><%= phone2.Highlight_Release_date%></div></div>
+
+            </div>           
+            <div class="specs last specs-last">
+                <div class="specs-heading"><div class="value-wrapper">Buying links</div></div>
+                <div class="device1-specs-value">
+                    <div class="value-wrapper">
+                        <% if (phone1.Amazon_link=="-"&&phone1.Flipkart_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="#" class="link">-</a></div>
+                        <% } else if (phone1.Amazon_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="<%= phone1.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } else if (phone1.Flipkart_link=="-") { %>
+                        <div><a href="<%= phone1.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="#" class="link">-</a></div>
+                         
+                         
+                        <% }else{ %>
+                        <div><a href="<%= phone1.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="<%= phone1.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } %>
+
+                    </div>
+                </div>
+                <div class="device2-specs-value">
+                    <div class="value-wrapper">
+                        <% if (phone2.Amazon_link=="-"&&phone2.Flipkart_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="#" class="link">-</a></div>
+                        <% } else if (phone2.Amazon_link=="-") { %>
+                            <div><a href="#" class="link">-</a></div>
+                            <div><a href="<%= phone2.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } else if (phone2.Flipkart_link=="-") { %>
+                        <div><a href="<%= phone2.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="#" class="link">-</a></div>
+                         
+                         
+                        <% }else{ %>
+                        <div><a href="<%= phone2.Amazon_link %>" class="link">Amazon</a></div>
+                        <div><a href="<%= phone2.Flipkart_link %>" class="link">Flipkart</a></div>
+                        <% } %>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            
+        </div>
+        <div class="proscons-wrapper">
+            <div class="proscons-heading"><span>Pros & Cons</span></div>
+            <div class="device1-pros-heading">Pros (<%= phone1.Product_name %>)</div>
+            <div class="device1-pros-list">
+                <ul class="pros-list">
+                    <% phone1.Pros.forEach(element => { %>
+                        <li><%= element %></li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="device1-cons-heading">Cons (<%= phone1.Product_name %>)</div>
+            <div class="device1-cons-list">
+                <ul class="cons-list">
+                
+                    <% phone1.Cons.forEach(element => { %>
+                        <li><%= element %></li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="proscons-partition"><img src="/compare-partition.png" alt="" class="compare-partition"></div>
+
+            <div class="device2-pros-heading ">Pros (<%= phone2.Product_name %>)</div>
+            <div class="device2-pros-list">
+                <ul class="pros-list">
+                    <% phone2.Cons.forEach(element => { %>
+                        <li><%= element %></li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="device2-cons-heading">Cons (<%= phone2.Product_name %>)</div>
+            <div class="device2-cons-list">
+                <ul class="cons-list cons-list-device2">
+                
+                    <% phone2.Cons.forEach(element => { %>
+                        <li><%= element %></li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            
+            
+            
+        </div>
+        <div class="term-explanation">
+            <div class="term-explain-text">Didn’t understand any term or specifications</div>
+            <img src="/main-compare-arrow.png" alt="" class="main-compare-arrow">
+           <form action="/chatbot" class="zenny-form">
+               <button class="zenny-btn"><span class="ask-text">Ask Zenny!</span><img src="/zennylogo-btn-main-compare.png" alt="" class="button-zenny"></button>
+            </form>
+        </div>
+        <div class="quote">
+                    
+            <img src="/compare-quote.png" alt="" class="quote-text">
+           
+        </div>
+        <img src="/main-compare-end.png" alt="" class="bottom-end">
+
+        
+    </div>
+</div>
+<div class="footer">  <hr>
+    <footer>
+       
+    <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+    
+    <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+ 
+    <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+     <div class="overlay"></div></div>
+ 
+    
+ 
+    <div class="social">
+     <button><i class="fa-brands fa-facebook"></i></button>
+     <button><i class="fa-brands fa-linkedin"></i></button>  
+     <button><i class="fa-brands fa-youtube"></i></button> 
+     <button><i class="fa-brands fa-instagram"></i></button> 
+  </div>
+ </div>
+    </footer>
+ </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="/profile.js"></script>
+<script src="/searchbox.js"></script>
+<script src="/logout.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.querySelector(".zenny-btn");
+      const text = document.querySelector(".ask-text");
+      const gif = document.querySelector(".button-zenny");
+      button.addEventListener("mouseenter", () => {
+        
+        gsap.to(text, { x: 60, duration: 0.1, ease: "power2.out" }); // Moves text to the right
+        gsap.to(gif, { x: -150, opacity: 1, duration: 0.1, ease: "power2.out" ,
+          
+        });
+      });
+  
+      button.addEventListener("mouseleave", () => {
+        gsap.to(text, { x: 0, duration: 0.1, ease: "power2.out" }); // Reset text position
+        // gsap.to(gif, { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" }); // Reset GIF position & opacity
+        gsap.to(gif, { x: 0, opacity: 1, duration: 0.1, ease: "power2.out" ,
+          
+        });
+      });
+    });
+  </script>
+<script src="/chatbot.js"></script>
+
+</body>
+</html>

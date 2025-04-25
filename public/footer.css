@@ -1,0 +1,150 @@
+
+.footer{
+    /* position: relative;
+    top: 500px; */
+    height:200px;
+}
+hr{
+    height: 0.5px;
+    margin-top: 0px;
+    margin-left: 45px;
+    margin-right: 45px;
+    background: #000;
+    border: 0px;
+    position: relative;
+    bottom: -29px;
+    
+}
+footer{
+    position: relative;
+    bottom: 25px; 
+    bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 40px 0px 40px;
+    /* height: 200px; */
+    
+}
+.f-left{
+    position: relative;
+    top: 25px;
+}
+.f-left .span-1{
+    position: relative;
+    top: 2px;
+}
+.f-left p{
+    position: relative;
+    top: 21px;
+}
+.f-left p{
+     
+   font-family: Poppins;
+   color: #000;
+font-family: Poppins;
+font-size: 19px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 36px */
+/* top: 40px; */
+   
+
+}
+.f-left .span-1{
+ font-family: poppins;
+ color: #000;
+font-size: 19px;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 36px */
+}
+.f-left .span1-2{
+margin-left: 15px;
+}
+.f-middle{
+    position: relative;
+top: 18px;
+    left: 110px;
+}
+.f-middle p{
+    margin-top: 0px;
+    color: #000;
+font-family: Poppins;
+font-size: 19px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px;
+}
+.f-middle p a{
+    text-decoration: none;
+    color: #000;
+
+}
+.f-right{
+    display: flex;
+    
+   
+}
+.f-right p{
+    position: relative;
+    right: -150.5px;
+        top: 64.7px; 
+    color: #000;
+    font-family: Yellowtail;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 60px */
+    height: 59px;
+    width:200px;   
+}
+.social{
+    position: relative;
+    right: 22.5px;
+     top: 14px; 
+    height: 40px;
+    width: 125px;
+    display: flex;
+    padding: 8px;
+  }
+.social button{
+   margin: 6px;
+   justify-content: center;
+   align-items: center;
+   border: none;
+   background: transparent;
+   font-size: 16.5px;
+}
+.social i{
+   color:#828282 ; 
+
+
+}
+.heart{
+    position: relative;
+    bottom: -70px;
+    right:-90px ;
+    height: 80px;
+}
+.heart video{
+    
+   
+    /* margin: 0;padding: 0; */
+    height: 80px;
+    width: 80px;
+    background: #F3F1C1;
+    border: none;
+    border-radius: 50%;
+   
+    /* opacity: 0.5; */
+   
+}
+.overlay {
+    position: fixed;
+    top: 30px;
+    right: -90px;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(243, 241, 193, 0.5); 
+    z-index: -1;
+  }

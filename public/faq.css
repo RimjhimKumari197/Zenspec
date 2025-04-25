@@ -1,0 +1,402 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #F3F1C1;
+    font-family: poppins;
+    overflow-x: hidden;
+     overflow-y: scroll; 
+    
+}
+.main-cont{
+    position: relative;
+    height: 2320px;
+    top: 0px;
+}
+
+
+.ques{
+    position: absolute;
+    top: 104.5px;
+    left: 103.8px;
+}
+.ques span{
+    color: #000;
+font-family: Poppins;
+font-size: 44px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+
+.hr-outer {
+    width: 1330px;
+height: 1.5px;
+stroke-width: 2px;
+background-color: #7A7A7A;
+position: absolute;
+top: 240px;
+left: 60px;
+border-radius: 5px;
+}
+
+
+.freq-ques{
+    display: flex;
+    flex-direction: column;
+    width: 1252px;
+    height: 1741px;
+
+    border-radius: 28px;
+    border: 2px solid #000;
+    background: #000;
+    position: absolute;
+    left: 102px;
+    top: 295px;
+    padding: 40px;
+}
+.all-hr {
+    height: 2px;
+    width: 1250px;
+    background-color: #7A7A7A;
+    stroke-width: 1px;
+    border: none;
+    border-radius: 30px;
+    opacity: 0.8;
+    position: absolute;
+    left: -5px;
+    margin-top: 7px;
+    z-index: 1;
+}
+.general{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+.general span{
+    color: #FFF;
+font-family: Poppins;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.hr-gen {
+    position: absolute;
+    top: 119px;
+    
+}
+
+
+.para{
+    position: absolute;
+   
+}
+.para-1{
+    width: 1270px;
+position: absolute;
+top: 45px;
+}
+
+ .hr-1 {
+    position: absolute;
+    top: 275px;
+}
+.hr-2 {
+    position: absolute;
+    top: 431px;
+} .hr-3 {
+    position: absolute;
+    top: 564px;
+} .hr-4 {
+    position: absolute;
+    top: 720px;
+}
+p{
+    color: #828282;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.spn{
+    color: #F59C42;
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.box-1  {
+     position: absolute;
+    top: 150px;
+
+}
+.box-1 span{
+    width: 900px;
+    position: absolute;
+    top: 2px;
+}
+.box-2{
+    position: absolute;
+    top: 305px;
+}
+.box-2 span{
+    width: 900px;
+    position: absolute;
+    top: 3px;
+}
+.para-2{
+    width: 1270px;
+position: absolute;
+top: 47px;
+}
+.box-3{
+    position: absolute;
+    top: 450px;
+}
+.box-3 span{
+    width: 900px;
+    position: absolute;
+    top: 15px;
+}
+.para-3{
+    width: 1270px;
+    position: absolute;
+    top: 59px;
+}
+
+
+
+
+.box-4{
+    position: absolute;
+    top: 600px;
+}
+
+.box-4 span{
+    width: 1270px;
+    position: absolute;
+    top: -2px;
+}
+.para-4{
+    width: 1270px;
+    position: absolute;
+    top: 42px;
+}
+
+
+.box-5{
+    position: absolute;
+    top: 749px;
+}
+.box-5 span{
+    width: 970px;
+    position: absolute;
+    top: 5px;
+}
+.para-5{
+    width: 1270px;
+    position: absolute;
+    top: 49px;
+}
+
+
+.zenny{
+    position: absolute;
+    top: 902px;
+    left: 40px;
+}
+.zenny span{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.hr-zen{
+    position: absolute;
+    top: 981px;
+    left: 0px;
+}
+.box-6{
+    position: absolute;
+    top: 1010px;
+}
+.box-6 span{
+    width: 970px;
+    position: absolute;
+    top: 5px;
+}
+.para-6{
+    width: 1270px;
+    position: absolute;
+    top: 49px;
+}
+.hr-5 {
+    position: absolute;
+    top: 1139px;
+}
+
+
+.box-7{
+    position: absolute;
+    top: 1167px;
+}
+.box-7 span{
+    width: 970px;
+    position: absolute;
+    top: 5px;
+}
+.para-7{
+    width: 1270px;
+    position: absolute;
+    top: 49px;
+}
+
+
+
+.usr-spt{
+    position: absolute;
+    top: 1320px;
+    left: 40px;
+}
+.usr-spt span{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.hr-usr{
+    position: absolute;
+    top: 1400px;
+    left: px;
+}
+
+
+.box-8{
+    position: absolute;
+    top: 1427px;
+}
+.box-8 span{
+    width: 970px;
+    position: absolute;
+    top: 5px;
+}
+.para-8{
+    width: 1270px;
+    position: absolute;
+    top: 49px;
+}
+
+.hr-6 {
+    position: absolute;
+    top: 1531px;
+}
+
+
+.box-9{
+    position: absolute;
+    top: 1560px;
+}
+.box-9 span{
+    width: 970px;
+    position: absolute;
+    top: 5px;
+}
+.para-9{
+    width: 1270px;
+    position: absolute;
+    top: 49px;
+}
+.hr-7 {
+    position: absolute;
+    top: 1664px;
+}
+
+
+
+.box-10{
+    position: absolute;
+    top: 1692px;
+}
+.box-10 span{
+    width: 970px;
+    position: absolute;
+    top: 5px;
+}
+.para-10{
+    width: 1270px;
+    position: absolute;
+    top: 49px;
+}
+
+
+.last-text{
+    height: 200px;
+    width: 1200px;
+    position: absolute;
+    top: 2157px;
+    left: 131px;
+}
+.last-text h2{
+    color: #000;
+font-family: Poppins;
+font-size: 48px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.cont-btn{
+    position: absolute;
+     top: 2200px;
+    left: 1168px; 
+    display: flex;
+    width: 239px;
+    height: 76px;
+    padding: 19px 57px 19px 57px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 29px;
+    border: 2px solid #FFF;
+    background: #000;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+
+}
+.cont-btn:hover{
+    
+    color: #000;
+    background: #F59C42;
+    border: 2px solid #000;
+   
+}
+.arrow-back{
+    position: fixed;
+    top: 131px;
+    left: 37px;
+}
+.arrow-back img{
+    height: 44px;
+    width: 44px;
+}
+.header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 2000;
+}
+
+.arrow-back{
+    background-color: transparent;
+    border: none;
+}

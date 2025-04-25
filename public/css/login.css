@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html,body{
+    background: #000;
+  }
+  .logo img{
+    height: 90px;
+    width: 90px;
+  }
+  .main-container{
+    background-image: url('../images/userbg.png'); 
+    background-size: 100vw 100vh; 
+    /* background-position: center;  */
+    background-repeat: no-repeat; 
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+     position: relative;
+     
+  }
+  
+  .logo{
+    position: absolute;
+    top: 10px;
+    left:10px;
+  }
+  .login{
+    color: #F3F1C1;
+   text-align: center;
+  font-family: "Rubik Iso";
+  letter-spacing: 13px;
+  font-size: 205px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  transform: rotate(-90deg);
+  margin-left: 60px;
+  margin-right: 60px;
+  position: absolute;
+  right:480px;
+  top: 250px;
+  width: 1500px;
+  
+  }
+  .in{
+    color: #494949;
+  }
+  .login-form{
+    
+    position: absolute;
+    top: 270px;
+    left: 483px;
+  }
+  .name{
+    display: flex;
+    position:relative;
+    align-items: center;
+    height: 130px;
+  }
+  .firstname-label,.lastname-label{
+    color: #FFF;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  position: absolute;
+  top: 3px;
+  
+  }
+  .firstname-label{
+    position: absolute;
+    left: 78px;
+    
+  }
+  .lastname-label{
+    position: absolute;
+    left: 330px;
+  }
+  .firstname-input,.lastname-input{
+     width: 190px;
+     margin-left: 60px;
+    height: 65px;
+    border-radius: 23px;
+    border: 1px solid #FFFDFD;
+    padding-left:15px;
+    background: #000;
+    color: #616161;
+    font-family: Poppins;
+    font-size: 16.5px;
+    font-style: normal;
+    font-weight: 280;
+    line-height: normal;
+    margin-bottom: 20px;
+    transition: background-color 300ms ease-out;
+   
+  }
+  .email-label,.password-label{
+    color: #FFF;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  padding-left: 79px;
+  }
+  .email-input,.password-input{
+    width: 440.85px;
+  height: 65px;
+  border-radius: 23px;
+  border: 1px solid #FFFDFD;
+  padding-left:14px;
+  background: #000;
+  color: #616161;
+  font-family: Poppins;
+  font-size: 16.5px;
+  font-style: normal;
+  font-weight: 280;
+  line-height: normal;
+  margin-left: 60px;
+  transition: background-color 300ms ease-out;
+  }
+  .email-input{
+    margin-bottom: 30px;
+  }
+  .password-input{
+    margin-bottom: 15px;
+  }
+  .forgot-pass{
+    text-decoration: none;
+    color: #6F6D6D;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 79px;
+  
+  }
+  .login-btn{
+    border-radius: 23px;
+  border: 1px solid #FFF;
+  width: 440.85px;
+  height: 65px;
+  background-color: #000;
+    color: #FFF;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0 20px;
+  margin-top: 50px;
+  margin-bottom: 300px;
+  margin-left: 60px;
+  transition: background-color 300ms ease-out;
+  
+  }
+  .email-input:hover,.password-input:hover,.firstname-input:hover,.lastname-input:hover{
+    background: #FFF;
+  }
+  .login-btn:hover{
+    background: #F59C42;
+  color: #000;
+  }
+  .flash{
+    position: absolute;
+    top: 0px;
+    width: 1000px;
+  }
+  input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    background-color: white !important;
+    color: #616161 !important;
+    -webkit-text-fill-color: #616161 !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}

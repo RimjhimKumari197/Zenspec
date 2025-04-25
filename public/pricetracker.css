@@ -1,0 +1,174 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100%;
+    background: #000;
+    
+   
+}
+::-webkit-scrollbar {
+    display: none;
+}
+#full-container{
+    position: relative;
+    height: 100%;
+   z-index: 200;
+   background: #F3F1C1;
+  
+   /* visibility: hidden; */
+  }
+.main{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 70px;
+    height: 780px;
+   
+}
+
+.header-text{
+    display: flex;
+    position: absolute;
+    top: 45px;
+    left: 163px;
+}
+
+.dot-box{
+    position: absolute;
+    top: 48px;
+    left: 353px;
+   
+}
+
+.dot-box video{
+  
+    height: 80px;
+    width: 200px;
+}
+
+.normal{
+    color: #000;
+    font-family: Poppins;
+    font-size: 48.6px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 80px ; 
+    width: 1200px;
+}
+
+.zilla-text{
+    margin-left: -1.6px;
+    color: #000;
+font-family: "Zilla Slab Highlight";
+font-size: 56px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%;
+}
+
+.oops{ 
+   
+    position: absolute;
+    top: 8px;
+    left: 512px;
+    right: 88.6px;
+    color: #000;
+font-family: Zeyada;
+font-size: 48px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; 
+}
+
+.maincont{
+    position: absolute;
+    top: 220px;
+    left: 164px;
+    width: 740px;
+    height: 100px;
+
+}
+
+.maincont p{
+    color: #000;
+font-family: "Potta One";
+font-size: 35.9px;
+font-style: normal;
+font-weight: 130;
+line-height:  54.5px ;
+}
+
+ 
+.error{
+    position: absolute;
+    top: 82.5px;
+    left: 1281.5px;
+}
+
+.error img{
+    height: 92px;
+    width: 92px;
+}
+
+.honey{
+    position: absolute;
+    top: 157.5px;
+    left: 885px;
+}
+
+.honey img{
+    height: 452px;
+    width: 452px;
+   
+}
+
+.lastpara{
+
+    position: absolute;
+    top: 628px;
+    left: 516px;
+    z-index: 10;
+}
+
+.lastpara a{
+    color: #07F;
+    font-family: Poppins;
+    font-size: 28.8px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; 
+    text-decoration: none;
+}
+
+.lastpara span{
+    margin-left: 4px;
+    color: #000;
+font-family: Poppins;
+font-size: 28.8px;
+font-style: normal;
+font-weight: 300;
+line-height: 150%; 
+}
+
+.arrow{
+    position: absolute;
+    top: 420px;
+    left: 346.2px;
+
+ 
+}
+
+.arrow img{
+    height: 325px;
+    width: 325px;
+} 
+
+.header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index:2000;
+}

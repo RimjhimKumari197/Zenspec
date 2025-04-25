@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Plus+Jakarta+Sans:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/searchbox.css">
+    
+
+</head>
+<body>
+<div id="full-container">
+<div class="header"> 
+        <header>
+        <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+        <div class="middle"> <nav>
+             <ul class="nav-links">
+            <li><form action="/search">
+                <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                <div class="suggestion-box" id="suggestions1"></div>
+
+                </input>
+            </div>
+        </form></li>
+            <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+            <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+            <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+            <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+            <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+             </ul> 
+        </nav></div>
+        <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+    </header>
+    <div class="dropdown-profile">
+       
+       
+        <div class="dropdown-content-profile" id="dropdown-content-profile">
+            <div class="triangle"></div>
+            <div class="order-list" >
+               <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+               <hr class="one">
+               <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+               <hr class="two">
+               <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+               <hr class="three">
+               <a href="/logout"> <span class="log" id="log">Log out</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+<form action="/chatbot" method="get">
+<button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+<div class="container2">
+   
+    <!-- App header -->
+    <div class="app-header2">
+        <div class="heading2">Hey, Buddy !</div>
+        <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+    </div>
+    <!-- button list -->
+     <button class="explain">Explain the page.</button><br>
+     <button class="summarize">Summarize the page.</button>
+     <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+     <!-- chats container2  -->
+     <div class="chats-container2"></div>
+     <!-- prompt container2 -->
+     <div class="prompt-container2">
+        <div class="prompt-wrapper2">
+            <form action="" class="prompt-form2">
+                <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                <div class="prompt-action2">
+                    <!-- file-upload-wrapper -->
+                    <div class="file-upload-wrapper2">
+                        <img src="#" alt="" class="file-preview2">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                        <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                        <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                        <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                    </div>
+                    <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                    <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                </div>
+            </form>
+            <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+            <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+            <!-- <button id="explain-chats-btn">explain</button> -->
+
+        </div>
+        
+     </div>
+    </div>
+
+
+</div>
+
+<div class="main">
+    <div class="perfect">
+        <video autoplay loop muted src="Phonevideoanimation.mp4" class="phone"></video>
+        
+        <span class="perfect-text">“Find the perfect gadget for you”</span>
+        <img src="uplines.png" alt="" class="upline">
+        <video autoplay loop muted src="letsgorocket.mp4" class="letsgorocket"></video>
+        <video autoplay loop muted src="bubbles.mp4" class="bubble"></video>
+    
+        <form action="/category">
+       
+        <button class="letsgo"><span class="letsgo-txt">Let’s go</span> <img src="buttonwheel-unscreen.gif" alt="wheel" class="wheel"></button>
+        </form>
+        <video autoplay loop muted src="Laptopvideoanimation.mp4" class="laptop"></video>
+    
+    </div>
+    
+    <div class="buttons">
+        <div class="btn-wrapper">
+        <form action="/technews">
+            <button class="home-btn home-btn-1">Latest tech news</button>
+        </form>
+        <form action="/compare/form" method="post">
+            <button class="home-btn">Compare gadgets</button>
+        </form>
+        <form action="/category">
+            <button class="home-btn home-btn-3">Best in profession category</button>
+        </form>
+        </div>  
+    </div>
+    
+    <div class="trend-box">
+
+        <h2 class="phone-heading">Trending smartphones</h2>
+
+
+
+        <button id="prev-button" onclick="prevSlide()"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="carousel-phone">
+
+           
+           
+            <div class="carousel-box-phone" id="carousel-box-phone">
+            <% phones.forEach(phone => { %>
+                
+                    <div class="slide" onclick="handlePhoneClick(event, '<%= phone._id %>')">
+                        <div class="card-phone">
+                        <img src="<%= phone.Imgurl %>" alt="1">
+                        <div class="info-1">
+                            <h4><%=phone.product_name %></h4>
+                            <p class="price-phone">From <span >₹<%= new Intl.NumberFormat('en-IN').format(phone.Price) %></span></p>
+                            <span class="offer">No offers included</span> <br>
+                            <form action="/compare/form?id1=<%= phone.product_name %>" method="POST">
+                                <button class="comp">Compare</button>
+                              </form>
+                        </div>
+                        </div>
+                    </div>  
+                
+                 
+             
+            <% }) %>
+                
+
+
+            <!-- <div class="slide">
+                <div class="card-phone">
+                <img src="Apple iPhone 16 Pro Max.png" alt="2">
+                <div class="info-1">
+                    <h4>Apple iPhone 16 Pro Max</h4>
+                    <p class="price-phone">From <span >₹1,35,900</span></p>
+                    <span class="offer">No offers included</span> <br>
+                    <a href=""><button class="comp">Compare</button></a>
+                </div>
+                </div>
+            </div> 
+
+            <div class="slide">
+                <div class="card-phone">
+                <img src="OnePlus 13.png" alt="3">
+                <div class="info-1">
+                    <h4>OnePlus 13</h4>
+                    <p class="price-phone">From <span >₹64,999</span></p>
+                    <span class="offer">No offers included</span> <br>
+                    <a href=""><button class="comp">Compare</button></a>
+                </div>
+                </div>
+            </div> 
+
+               
+            <div class="slide">
+                <div class="card-phone">
+                <img src="Google Pixel 9 Pro XL.png" alt="4">
+                <div class="info-1">
+                    <h4>Google Pixel 9 Pro XL</h4>
+                    <p class="price-phone">From <span >₹1,14,999</span></p>
+                    <span class="offer">No offers included</span> <br>
+                    <a href=""><button class="comp">Compare</button></a>
+                </div>
+                </div>
+            </div>  
+
+
+        <div class="slide">
+            <div class="card-phone">
+            <img src="Samsung Galaxy S25.png" alt="5">
+            <div class="info-1">
+                <h4>Samsung Galaxy S25 </h4>
+                <p class="price-phone">From <span >₹65,995</span></p>
+                <span class="offer">No offers included</span> <br>
+                <a href=""><button class="comp">Compare</button></a>
+            </div>
+            </div>
+        </div> 
+
+        <div class="slide">
+            <div class="card-phone">
+            <img src="Apple iPhone 16.png" alt="6">
+            <div class="info-1">
+                <h4>Apple iPhone 16</h4>
+                <p class="price-phone">From <span >₹73,400</span></p>
+                <span class="offer">No offers included</span> <br>
+                <a href=""><button class="comp">Compare</button></a>
+            </div>
+            </div>
+        </div> 
+
+        <div class="slide">
+            <div class="card-phone">
+            <img src="NOTHING PHONE 3A PRO.png" alt="7">
+            <div class="info-1">
+                <h4>NOTHING PHONE 3A PRO</h4>
+                <p class="price-phone">From <span >₹29,999</span></p>
+                <span class="offer">No offers included</span> <br>
+                <a href=""><button class="comp">Compare</button></a>
+            </div>
+            </div>
+        </div>  
+
+
+    <div class="slide">
+        <div class="card-phone">
+        <img src="Samsung Galaxy Z Fold6.png" alt="8">
+        <div class="info-1">
+            <h4>Samsung Galaxy Z Fold6</h4>
+            <p class="price-phone">From <span >₹1,48,999</span></p>
+            <span class="offer">No offers included</span> <br>
+            <a href=""><button class="comp">Compare</button></a>
+        </div>
+    </div>
+    </div> 
+
+    <div class="slide">
+       <div class="card-phone">
+        <img src="OnePlus 13R.png" alt="9">
+        <div class="info-1">
+            <h4>OnePlus 13R</h4>
+            <p class="price-phone">From <span >₹41,141</span></p>
+            <span class="offer">No offers included</span> 
+            <a href=""><button class="comp">Compare</button></a>
+        </div>
+    </div>
+    </div>  -->
+
+
+            
+            </div>
+            
+          
+
+        </div>
+        <button id="next-button" onclick="nextSlide()"><i class="fa-solid fa-angle-right"></i></button>
+
+
+
+  <div class="hr-line"> <hr class="hr-class"></div>
+
+
+
+
+
+
+
+
+  
+        <!-- for laptop -->
+
+        <h2 class="laptop-heading">Trending laptops</h2>
+        <button id="prev-button-laptop" onclick="prevSlideLaptop()"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="carousel-laptop">
+           
+            <div class="carousel-box-laptop" id="carousel-box-laptop">
+
+
+        
+               <% laptops.forEach(laptop => { %>
+                <div class="slide-lap">
+                    <div class="card-box" onclick="handleLaptopClick(event, '<%= laptop._id %>')"> 
+                             <img src="<%= laptop.Imgurl %>" alt="1">
+        
+                        <div class="info-lap">
+                            <h4 class="lap-name"> <%= laptop.Product_name %></h4>
+                            <p class="price-lap">From <span>₹<%= new Intl.NumberFormat('en-IN').format(laptop.Price) %></span></p>
+                            <span class="offer-lap">No offers included</span> <br>
+                            <form action="/compare/form?id1=<%= laptop.Product_name %>" method="POST">
+                                <button class="comp-lap">Compare</button>
+                              </form>
+                        </div>
+                    </div> 
+                </div>
+        
+               <% }) %>
+              
+        <!-- <div class="slide-lap">
+               
+            <div class="card-box"> 
+                     <img src="Asus Zenbook 14 (2025).png" alt="2">
+
+                <div class="info-lap">
+                    <h4 class="lap-name"> Asus Zenbook 14 (2025)</h4>
+                    <p class="price-lap">From <span>₹1,29,999</span></p>
+                    <span class="offer-lap">No offers included</span> <br>
+                    <a href=""><button class="comp-lap">Compare</button></a>
+                </div>
+            </div> 
+        </div>
+
+     
+        <div class="slide-lap">
+               
+            <div class="card-box"> 
+                     <img src="Samsung Galaxy Book5 Pro.png" alt="3">
+
+                <div class="info-lap">
+                    <h4 class="lap-name"> Samsung Galaxy Book5 Pro</h4>
+                    <p class="price-lap">From <span>₹1,29,999</span></p>
+                    <span class="offer-lap">No offers included</span> <br>
+                    <a href=""><button class="comp-lap">Compare</button></a>
+                </div>
+            </div> 
+        </div>
+
+        <div class="slide-lap">
+               
+            <div class="card-box"> 
+                     <img src="Apple MacBook Air 13-inch (M4, 2025).png" alt="4">
+
+                <div class="info-lap">
+                    <h4 class="lap-name"> Apple MacBook Air 13-inch (M4, 2025)</h4>
+                    <p class="price-lap">From <span>₹1,29,999</span></p>
+                    <span class="offer-lap">No offers included</span> <br>
+                    <a href=""><button class="comp-lap">Compare</button></a>
+                </div>
+            </div> 
+        </div>
+
+        <div class="slide-lap">
+               
+            <div class="card-box"> 
+                     <img src="Dell Alienware m16 R2.png" alt="5">
+
+                <div class="info-lap">
+                    <h4 class="lap-name"> Dell Alienware m16 R2</h4>
+                    <p class="price-lap">From <span>₹1,29,999</span></p>
+                    <span class="offer-lap">No offers included</span> <br>
+                    <a href=""><button class="comp-lap">Compare</button></a>
+                </div>
+            </div> 
+        </div>
+
+        <div class="slide-lap">
+               
+            <div class="card-box"> 
+                     <img src="Acer Predator Helios Neo 16 (2024).png" alt="6">
+
+                <div class="info-lap">
+                    <h4 class="lap-name"> Acer Predator Helios Neo 16 (2024)</h4>
+                    <p class="price-lap">From <span>₹1,29,999</span></p>
+                    <span class="offer-lap">No offers included</span> <br>
+                    <a href=""><button class="comp-lap">Compare</button></a>
+                </div>
+            </div> 
+        </div> -->
+
+
+
+            </div>
+           
+        </div>
+        <button id="next-button-laptop" onclick="nextSlideLaptop()"><i class="fa-solid fa-angle-right"></i></button>
+
+    </div>
+
+
+
+
+   
+
+    <div class="introduce-zenny">
+        <div class="heading-zenny">Introducing <span class="zenny">“ZENNY”</span></div>
+        <img src="Curveddottedarrow.png" alt="" class="arrow">
+        <img src="Zennylogo.png" alt="" class="zenny-logo">
+        <div class="chatbot"> chatbot</div>
+        <div class="white-line"></div>
+        <span class="desc-zenny">Your personal <span class="chatbot">chatbot</span> Buddy to find you the best gadgets.</span>
+        <video autoplay loop muted src="galaxy.mp4" class="galaxy"></video>
+        <div class="intro">
+            <div class="black-line"></div>
+            <div class="intro-text">Meet Zenny, <br>
+                your digital <span>guide</span> <span style="font-weight: 600;">friend</span> at Zenspec!<br>
+                Zenny is here to make your gadget searching experience easy and enjoyable. Whether you’re comparing smartphones, or just trying to understand complex specs, Zenny’s got you covered. Simply ask Zenny any question about gadgets, processors or anything, and you’ll get quick, simplified and reliable answers. Confused by tech jargon? No problem! Zenny can simplify any selected text on the page into plain, easy-to-understand language <br>
+                Think of Zenny as your personal tech buddy—always ready to help, chat, and guide you through every step of the way. <br> 
+                <span style="font-weight: 600;">Don’t know the meaning of jargon ?</span> <br></div>
+                <form action="/chatbot">
+                    <button class="ask-btn">Ask Zenny</button>
+                </form>
+        </div>
+        
+    </div>
+    <div class="price-tracker">
+        <video autoplay loop muted src="rocket.mp4" class="rocket"></video>
+        <video autoplay loop muted src="aestroid.mp4" class="aestroid"></video>
+        <video autoplay loop muted src="solarsystem.mp4" class="solarsystem"></video>
+        <div class="tracker-text">Want to track price <br>of your fav gadgets ?</div>
+        <form action="/pricetracker">
+        <button class="tracker-btn">Sure, why not !</button>
+    </form>
+    
+    
+        <div class="background">
+            <video autoplay loop muted src="background.mp4" class="background-1"></video>
+            <video autoplay loop muted src="background.mp4" class="background-2"></video>
+            <video autoplay loop muted src="background.mp4" class="background-3"></video>
+            <video autoplay loop muted src="background.mp4" class="background-4"></video>
+            <video autoplay loop muted src="background.mp4" class="background-5"></video>
+            <video autoplay loop muted src="background.mp4" class="background-6"></video>
+        </div>
+        
+    
+    </div>
+    <div class="quote">
+        <div class="quote-text">“Technology is best when it brings people together.”</div>
+        <div class="quote-writer">-Matt Mullenweg</div>
+    </div>
+</div>
+
+<div class="footer">  <hr>
+    <footer>
+       
+    <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+    
+    <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+ 
+    <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+     <div class="overlay"></div></div>
+ 
+    
+ 
+    <div class="social">
+     <button><i class="fa-brands fa-facebook"></i></button>
+     <button><i class="fa-brands fa-linkedin"></i></button>  
+     <button><i class="fa-brands fa-youtube"></i></button> 
+     <button><i class="fa-brands fa-instagram"></i></button> 
+  </div>
+ </div>
+    </footer>
+ </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+<script src="/home.js"></script>
+  <script src="/profile.js"></script>
+<script src="/chatbot.js"></script>
+<script src="/searchbox.js"></script>
+<script src="/logout.js"></script>
+<script>
+function sendPostRequest() {
+    fetch('/compare/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id1: 'value' })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      // optionally redirect or update UI
+    });
+  }
+    </script>
+    
+</body>
+</html>

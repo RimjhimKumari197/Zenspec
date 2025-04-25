@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>technews</title>
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/technews.css">
+
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/searchbox.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Potta+One&family=Rubik+Iso&family=Yellowtail&family=Zen+Dots&family=Zeyada&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&family=Yellowtail&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&family=Yellowtail&family=Zen+Dots&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+
+
+</head>
+<body>
+
+   
+    <div class="header"> 
+        <header>
+        <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+        <div class="middle"> <nav>
+             <ul class="nav-links">
+            <li><form action="/search">
+                <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                <div class="suggestion-box" id="suggestions1"></div>
+
+                </input>
+            </div>
+        </form></li>
+            <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+            <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+            <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+            <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+            <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+             </ul> 
+        </nav></div>
+        <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+    </header>
+    <div class="dropdown-profile">
+       
+       
+        <div class="dropdown-content-profile" id="dropdown-content-profile">
+            <div class="triangle"></div>
+            <div class="order-list" >
+               <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+               <hr class="one">
+               <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+               <hr class="two">
+               <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+               <hr class="three">
+               <a href="/logout"> <span class="log" id="log">Log out</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+<form action="/chatbot" method="get">
+<button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+<div class="container2">
+   
+    <!-- App header -->
+    <div class="app-header2">
+        <div class="heading2">Hey, Buddy !</div>
+        <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+    </div>
+    <!-- button list -->
+     <button class="explain">Explain the page.</button><br>
+     <button class="summarize">Summarize the page.</button>
+     <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+     <!-- chats container2  -->
+     <div class="chats-container2"></div>
+     <!-- prompt container2 -->
+     <div class="prompt-container2">
+        <div class="prompt-wrapper2">
+            <form action="" class="prompt-form2">
+                <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                <div class="prompt-action2">
+                    <!-- file-upload-wrapper -->
+                    <div class="file-upload-wrapper2">
+                        <img src="#" alt="" class="file-preview2">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                        <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                        <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                        <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                    </div>
+                    <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                    <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                </div>
+            </form>
+            <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+            <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+            <!-- <button id="explain-chats-btn">explain</button> -->
+
+        </div>
+        
+     </div>
+    </div>
+
+
+</div>
+
+
+
+    <div class="container">
+        <div class="box1"> <p class="heading">Hey  <span>Techie!</span> , here are some tech news for you</p> <img src="tceh-news-smile.png" alt=""></div>
+      
+      <div class="picbox"> 
+        <div class="paper"> <img src="tceh-news-news-paper.png" alt=""></div>
+       <div class="petrol"><img src="tceh-news-petrol.png" alt=""></div>
+        <div class="car"><img src="tceh-news-car.png" alt="">  </div> 
+        <div class="city"><img src="tceh-news-building.png" alt=""></div>
+     </div>
+
+        <div class="box2">
+            <div id="main-container">
+                <h3>Featured news</h3> <div class="speaker1"><img src="tceh-news-speaker.png" alt=""></div>
+                <div class="arrow1"><img src="tceh-news-Curved dotted arrow.png" alt=""></div>
+                <div class="msg1"><video src="tceh-news-msg.mp4" loop muted autoplay></video> </div>
+    
+                <div class="carousel-container">
+                    <div id="news-wrapper">
+                        <div id="news-container"></div>
+                    </div>
+                </div>
+            </div>
+             <button id="prev-btn" disabled><i class="fa-solid fa-angle-left"></i> </button>
+                <button id="next-btn"><i class="fa-solid fa-angle-right"></i></button> 
+        
+         </div>
+
+
+    <div class="box3">
+        <div id="news-container3">
+
+            <h3>Hot launches</h3>
+             
+            <div class="arrow3"><img src="tceh-news-Curved dotted arrow.png" alt=""></div>
+            <div class="msg3"><video src="tceh-news-msg.mp4" loop muted autoplay></video> </div>
+
+    <div class="swiper">
+     <div id="news-wrapper3">
+        <div  id="swiper-wrapper"></div>
+     </div>
+    </div>
+   
+        </div>
+        <button class="swiper-prev3"><i class="fa-solid fa-angle-left"></i></button>
+        <button class="swiper-next3"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+
+   <div class="box4">
+
+     <div class="text">
+        <p>One software update can change everything—imagine what<br> daily tech news can do! Stay informed, stay ahead.</p>
+        <div class="un-l"><img src="tceh-news-two-hr.png" alt=""></div>
+        <div class="up-r"><img src="tceh-news-two-hr.png" alt=""></div>
+       <div class="sml"> <img src="tceh-news-smile-big.png" alt=""></div>
+    </div>
+   
+</div>
+<div class="leftbox"><img src="tceh-news-last-img-right.png" alt=""></div>
+<div class="rightbox"><img src="tceh-news-last-img-left.png" alt=""></div>
+    </div>
+    
+
+   
+
+    <div class="footer">  <hr>
+        <footer>
+           
+        <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+        
+        <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+     
+        <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+         <div class="overlay"></div></div>
+     
+        
+     
+        <div class="social">
+         <button><i class="fa-brands fa-facebook"></i></button>
+         <button><i class="fa-brands fa-linkedin"></i></button>  
+         <button><i class="fa-brands fa-youtube"></i></button> 
+         <button><i class="fa-brands fa-instagram"></i></button> 
+      </div>
+     </div>
+        </footer>
+     </div>
+  
+
+
+<script src="/profile.js"></script>
+<script src="/technews1.js"></script>
+
+<script src="/technews2.js"></script>
+<script src="/searchbox.js"></script>
+<script src="/chatbot.js"></script>
+<script src="/logout.js"></script>
+
+</body>
+</html>

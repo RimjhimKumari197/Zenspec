@@ -1,0 +1,93 @@
+.proscons-wrapper{
+    width: 1305px;
+    margin-left: 34.5px;
+    border-radius: 32px;
+    border: 2px solid #000;
+    position: relative;
+    padding: 0px 25px;
+    background: #A8D9FF;
+    margin-top: 120px;
+}
+.proscons-heading{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+.proscons-heading span{
+    padding: 0px 70px;
+    height: 75px;
+    border-radius: 28px;
+    background: #000;
+    color: #fff;
+    font-family: Poppins;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 67.5px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -35px;
+
+}
+.device1-pros-heading,.device1-cons-heading,.device2-pros-heading,.device2-cons-heading{
+    margin-top: 90px;
+    padding: 15px 0px;
+    border-top: 2px solid #828282;
+    border-bottom: 2px solid #828282;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 54px */
+    margin-bottom: 20px;
+
+}
+.device2-pros-heading{
+    margin-top: 40px;
+}
+.device1-cons-heading,.device2-cons-heading{
+    margin-top: 20px;
+}
+.pros-list,.cons-list{
+    color: #505050;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+    margin: 0px 0px 20px 0px;
+    padding-left:7px ;
+    list-style: none;
+}
+
+.cons-list{
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #828282 ;
+}
+.pros-list li::before,.cons-list li::before{
+    
+    content: "•"; /* Unicode bullet character */
+    font-size: 20px; /* Adjust bullet size */
+    /* position: absolute;
+    left: 0;
+    top: 50%; */
+    margin-right: 10px;
+    transform: translateY(-50%);
+    color: #505050; /* Set bullet color */
+
+}
+.proscons-partition{
+    width: 1374px;
+    position: relative;
+    left: -25px;
+    
+    /* margin-top: 40px;
+    margin-bottom: 5px; */
+}
+.cons-list-device2{
+    margin-bottom: 80px;
+}

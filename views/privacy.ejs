@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy policy</title>
+
+
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/scheader.css"> 
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/privacy.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Potta+One&family=Rubik+Iso&family=Rubik+Moonrocks&family=Rubik:ital,wght@0,300..900;1,300..900&family=Yellowtail&family=Zen+Dots&family=Zeyada&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+</head>
+<body>
+
+
+
+
+  <div class="header"> 
+    <header>
+    <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+    <div class="middle"> <nav>
+         <ul class="nav-links">
+        <li><form action="/search">
+            <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+            <div class="suggestion-box" id="suggestions1"></div>
+
+            </input>
+        </div>
+    </form></li>
+        <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+        <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+        <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+        <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+        <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+        <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+         </ul> 
+    </nav></div>
+    <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+</header>
+<div class="dropdown-profile">
+   
+   
+    <div class="dropdown-content-profile" id="dropdown-content-profile">
+        <div class="triangle"></div>
+        <div class="order-list" >
+           <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+           <hr class="one">
+           <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+           <hr class="two">
+           <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+           <hr class="three">
+           <a href="/logout"> <span class="log" id="log">Log out</span></a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+<form action="/chatbot" method="get">
+<button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+<div class="container2">
+   
+    <!-- App header -->
+    <div class="app-header2">
+        <div class="heading2">Hey, Buddy !</div>
+        <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+    </div>
+    <!-- button list -->
+     <button class="explain">Explain the page.</button><br>
+     <button class="summarize">Summarize the page.</button>
+     <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+     <!-- chats container2  -->
+     <div class="chats-container2"></div>
+     <!-- prompt container2 -->
+     <div class="prompt-container2">
+        <div class="prompt-wrapper2">
+            <form action="" class="prompt-form2">
+                <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                <div class="prompt-action2">
+                    <!-- file-upload-wrapper -->
+                    <div class="file-upload-wrapper2">
+                        <img src="#" alt="" class="file-preview2">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                        <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                        <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                        <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                    </div>
+                    <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                    <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                </div>
+            </form>
+            <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+            <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+            <!-- <button id="explain-chats-btn">explain</button> -->
+
+        </div>
+        
+     </div>
+    </div>
+
+
+</div>
+
+
+
+    <div class="container">
+        <div class="top-cont">
+          <h1 class="heading">Privacy policy</h1>
+          <hr class="hr-top">
+          <p class="welcome">Welcome to Zenspec.</p>
+          <p class="para-1">At Zenspec.tech, your privacy is important to us. This Privacy Policy explains what information we collect,<br> how we use it, and how we protect it when you use our website.</p>
+        </div>
+
+        <div class="cont box-1">
+          <h2 class="heading-2">1. Information We Collect</h2>
+          <ol type="a" >
+            <li>Personal Information (When You Create an Account): </li>
+              
+           
+            <ul  style="list-style-type: disc;" class="info">
+
+                <li>  Name</li>
+                <li>Email address</li>
+                <li> Password (securely encrypted)</li>
+                 
+              </ul>
+           
+             
+            <li>Usage Data: 
+              <ul style="list-style-type: disc;" class="info">
+                <li>Browsing activity on Zenspec</li>
+                <li>Device type and browser</li>
+                <li>Time spent on pages and clicked features</li>
+              </ul>
+            </li>
+            <li>Communication Data: 
+              <ul style="list-style-type: disc;" class="info">
+                <li>Feedback or messages submitted through our contact forms</li>
+                <li>Chat interactions with Zenny, our AI chatbot</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <div class="img-1 "> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+
+        <div class="cont box-2">
+          <h2 class="heading-2">2. How We Use Your Information</h2>
+          <ul class="how-to-use">
+            <li>To personalize your experience and show relevant gadgets.</li>
+            <li>To allow  saving and managing your favorites or wishlist items.</li>
+            <li>To provide comparison tools based on your preferences.</li>
+            <li>To offer support and respond to your queries.</li>
+            <li>To improve our platform through analytics and user behavior insights.</li>
+          </ul>
+        </div>
+
+
+        <div class="img-2 "> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+
+
+        <div class="cont box-3">
+          <h2 class="heading-3">3. Data Sharing and Third-Party Links</h2>
+          <ul class="data-sharing">
+            <li>We do not sell your personal data to any third party.</li>
+            <li>We may share non-personal data (e.g. page visits or device types) with analytics tools like Google <br> Analytics.</li>
+            <li>Gadget purchase links redirect to trusted third-party retailers; Zenspec is not responsible for data <br>collected by these external sites. Please refer to their privacy policies.</li>
+          </ul>
+        </div>
+
+
+
+        <div class="img-3"> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+        <div class="cont box-4">
+          <h2 class="heading-4">4. Chatbot – Zenny</h2>
+          <ul class="chatbot">
+            <li> Conversations with Zenny may be stored temporarily to improve responses and provide relevant <br> suggestions.</li>
+            <li>Sensitive or personal data should not be shared with Zenny, as it is designed for general guidance <br> only.</li>
+          </ul>
+        </div>
+
+
+
+
+        <div class="img-4"> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+        <div class="cont box-5">
+          <h2 class="heading-5">5. Cookies & Tracking</h2>
+          <ul class="cookies">
+            <li>We use cookies to enhance user experience, remember your preferences, and offer personalized <br>suggestions.</li>
+            <li>You can control cookies through your browser settings at any time.</li>
+          </ul>
+        </div>
+
+
+
+
+        <div class="img-5"> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+
+
+
+        <div class="cont box-6">
+          <h2 class="heading-6">6. Data Security</h2>
+          <ul class="Data-Security">
+            <li>We take appropriate security measures to protect your data, including encryption and secure server <br> practices.</li>
+            <li>However, no method of transmission over the internet is 100% secure. You use the platform at your <br> own risk.</li>
+          </ul>
+        </div>
+
+        <div class="img-6"> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+
+        <div class="cont box-7">
+          <h2 class="heading-7">7. Your Rights</h2>
+         
+            <p class="p-class">You have the right to: </p>
+              <ul style="list-style-type: disc;" class="Your-Rights">
+                <li>Access or update your personal information</li>
+                <li>Request deletion of your account and associated data</li>
+              </ul>
+           
+         
+        </div>
+
+
+
+
+
+
+        <div class="img-7"> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+
+        <div class="cont box-8">
+          <h2 class="heading-8">8. Children’s Privacy</h2>
+          <ul class="Children" >
+            <li>
+              Zenspec.tech is intended for users aged 13 and above. We do not knowingly collect data from anyone <br> under 13 years of age.</li>
+          </ul>
+        </div>
+
+
+        <div class="img-8"> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+
+        <div class="cont box-9">
+          <h2 class="heading-9">9. Changes to This Policy</h2>
+      
+            <ul class="Changes">
+              <li>We may update this Privacy Policy from time to time. When we do, the updated date will be posted at <br> the top. Please review this page regularly for changes.
+              </li> 
+            </ul>
+        </div>
+
+
+
+        <div class="img-9"> 
+          <img src="/privacy-policy-wave-img.png" alt="">
+        </div>
+        <div class="cont box-10">
+          <h2 class="heading-10">10. Contact Us</h2>
+          <ul class="Contact">
+             <li> If you have any questions or concerns about this Privacy Policy, feel free to reach us at: <br> 📧 infozenspec@gmail.com </li></ul>
+        </div>
+
+
+
+        <button class="arrow-privacy" id="arrow-back"><img src="privacy-policy-arrow.png" alt=""></button>
+    </div>
+
+
+
+
+
+
+
+    <div class="footer">  <hr>
+      <footer>
+         
+      <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+      
+      <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+   
+      <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+       <div class="overlay"></div></div>
+   
+      
+   
+      <div class="social">
+       <button><i class="fa-brands fa-facebook"></i></button>
+       <button><i class="fa-brands fa-linkedin"></i></button>  
+       <button><i class="fa-brands fa-youtube"></i></button> 
+       <button><i class="fa-brands fa-instagram"></i></button> 
+    </div>
+   </div>
+      </footer>
+   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+  <script>
+      document.getElementById("arrow-back").addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent instant navigation
+
+      
+          gsap.to("body", { 
+              opacity: 0,  // Fade out
+              duration: 0.3, 
+              backgroundColor:"#F3F1C1",
+              ease: "power2.out",
+              onComplete: () => {
+                  window.history.back(); // Navigate back after fade-out
+              }
+          });
+      });
+  </script> 
+
+
+    <script src="/profile.js"></script>
+    <script src="/chatbot.js"></script>
+    <script src="/logout.js"></script>
+</body>
+
+</html>

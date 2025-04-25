@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Filter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Plus+Jakarta+Sans:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+    <link rel="stylesheet" href="../price-slider.css" >
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../footer.css">
+    <link rel="stylesheet" href="../page.css">
+    <link rel="stylesheet" href="../filter.css">
+    <link rel="stylesheet" href="../smallchatbot.css">
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/searchbox.css">
+</head>
+<body>
+<div class="full-container">
+  <div class="header"> 
+    <header>
+    <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+    <div class="middle"> <nav>
+         <ul class="nav-links">
+        <li><form action="/search">
+            <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+            <div class="suggestion-box" id="suggestions1"></div>
+
+            </input>
+        </div>
+    </form></li>
+        <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+        <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+        <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+        <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+        <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+        <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+         </ul> 
+    </nav></div>
+    <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+</header>
+<div class="dropdown-profile">
+   
+   
+    <div class="dropdown-content-profile" id="dropdown-content-profile">
+        <div class="triangle"></div>
+        <div class="order-list" >
+           <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+           <hr class="one">
+           <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+           <hr class="two">
+           <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+           <hr class="three">
+           <a href="/logout"> <span class="log" id="log">Log out</span></a>
+        </div>
+    </div>
+</div>
+</div>
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+  <form action="/chatbot" method="get">
+  <button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+  <div class="container2">
+     
+      <!-- App header -->
+      <div class="app-header2">
+          <div class="heading2">Hey, Buddy !</div>
+          <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+      </div>
+      <!-- button list -->
+       <button class="explain">Explain the page.</button><br>
+       <button class="summarize">Summarize the page.</button>
+       <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+       <!-- chats container2  -->
+       <div class="chats-container2"></div>
+       <!-- prompt container2 -->
+       <div class="prompt-container2">
+          <div class="prompt-wrapper2">
+              <form action="" class="prompt-form2">
+                  <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                  <div class="prompt-action2">
+                      <!-- file-upload-wrapper -->
+                      <div class="file-upload-wrapper2">
+                          <img src="#" alt="" class="file-preview2">
+                          <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                          <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                          <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                          <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                      </div>
+                      <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                      <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                  </div>
+              </form>
+              <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+              <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+              <!-- <button id="explain-chats-btn">explain</button> -->
+
+          </div>
+          
+       </div>
+      </div>
+ 
+
+</div>
+<div class="main">
+  <div class="dropdown-wrapper">
+       <!-- key preference -->
+       <div class="dropdown">
+        <div
+          class="dropbtn"
+          onclick="toggleDropdown('dropdown-item','dropdown-icon','dropdownOpen')";
+        >
+          <span class="drop-name">Key Preferences</span>
+          <img src="/down-icon.svg" alt="" id="dropdown-icon" />
+        </div>
+        <div id="keyDropdown" class="dropdown-content">
+          <div
+            onclick="applyFilter('Filter_key_pref', 'Gaming')"
+            class="dropdown-item"
+          >
+            Gaming
+          </div>
+          <div
+            onclick="applyFilter('Filter_key_pref', 'Studying')"
+            class="dropdown-item"
+          >
+            Studying
+          </div>
+          <div
+            onclick="applyFilter('Filter_key_pref', 'Working')"
+            class="dropdown-item"
+          >
+            Working
+          </div>
+          <div
+            onclick="applyFilter('Filter_key_pref', 'General use')"
+            class="dropdown-item"
+          >
+          General use
+          </div>
+        </div>
+      </div>
+      <div class="dropdown-text">Buckle up! The perfect device awaits you</div>
+     <!-- profession -->
+      <div class="dropdown2">
+          <div class="dropbtn2" onclick="toggleDropdown2('dropdown-item2','dropdown-icon2')"><span class="drop-name2">Profession tags</span><img src="/down-icon.svg" alt="" id="dropdown-icon2" /></div>
+          <div id="professionDropdown" class="dropdown-content2">
+              <div onclick="applyFilter2('Filter_prof_tags', 'Best for gamers')" class="dropdown-item2">Best for gamers</div>
+              <div onclick="applyFilter2('Filter_prof_tags', 'Ideal for designers')" class="dropdown-item2">Ideal for designers</div>
+              <div onclick="applyFilter2('Filter_prof_tags', 'Perfect for developers')"  class="dropdown-item2">Perfect for developers</div>
+              <div onclick="applyFilter2('Filter_prof_tags', 'Good for Students')"  class="dropdown-item2">Good for students</div>
+              <div onclick="applyFilter2('Filter_prof_tags', 'Ideal for all category')"  class="dropdown-item2">Ideal for all category</div>
+
+          </div>
+      </div>
+      <!-- sort -->
+      
+        <div class="dropdown3">
+            <div class="dropbtn3" onclick="toggleDropdown3('dropdown-item3','dropdown-icon3')"><span class="drop-name3">Sort by</span><img src="/down-icon.svg" alt="" id="dropdown-icon3" /></div>
+            <div id="sortDropdown" class="dropdown-content3">
+                <div onclick="applySort('sort','low-high')" class="dropdown-item3">Price (Low to high)</div>
+                <div onclick="applySort('sort','high-low')" class="dropdown-item3">Price (High to low)</div>
+                <div onclick="applySort('sort','rating')" class="dropdown-item3">Ratings and reviews</div>
+                <div onclick="applySort('sort','newest')" class="dropdown-item3">Newest first</div>
+                <div onclick="applySort('sort','rating')" class="dropdown-item3">Most popular</div>
+            </div>
+        </div>
+    
+  </div>
+  <div class="filter-product-wrapper">
+   <div class="filter-wrapper">
+      <!-- price -->
+    <div class="center">
+    <h2>Price slider</h2>
+    <div class="main-price">
+    <div class="slider-container">
+      <!-- Price Labels (Initially Hidden) -->
+      <div class="slider-labels">
+        <span class="price-tag min" id="min-label">0</span>
+        <span class="price-tag mid" id="mid-label">50,000</span>
+        <span class="price-tag max" id="max-label">100000<span class="plus-sign">+</span></span>
+      </div>
+  
+      <!-- Slider Track -->
+      <div class="slider-track"></div>
+  
+      <!-- Slider Thumb -->
+      <div class="slider-thumb" id="sliderThumb"></div>
+  
+      <!-- Moving Circle -->
+      <div class="moving-circle" id="movingCircle"></div>
+    </div>
+  
+    <div class="range-labels">
+      <button class="range-btn fst" data-value="0" >1</button>
+      <button class="range-btn snd" data-value="50000" >2</button>
+      <button class="range-btn trd" data-value="100000" >3</button>
+    </div>
+  </div>
+
+
+   <div class="input-box">
+    <form action=""> <input type="number" placeholder="Min price" class="min-input inp1"></form>
+    <div class="dash"></div>
+    <form action=""> <input type="number" placeholder="Max price" class="max-input inp1"></form>
+    <button class="tick-box"> </button>
+   </div>
+   <div id="clearButton" class="clear-btn"><img src="/slider-cross.png" alt=""></div>
+  </div>
+  <!-- filters -->
+  <div class="filters">
+    <button onclick="clearToggleFilters()" class="clear"><img src="../cross-img.png" alt=""></button>
+    <div class="brand-filter">
+    <div class="filter-heading">Brands</div>
+    <div class="brand-name">
+    <% ["Samsung","Apple","Lenovo","Asus","Dell","Acer"].forEach(b => { %>
+      <div class="filter1 " 
+          onclick="toggleFilter('Filter_brand', '<%= b %>')"><img src="../Check.svg" alt="" class="check"><span><%= b %></span>
+      </div>
+  <% }); %>
+  </div>
+</div>
+<div class="processor-filter">
+  <div class="filter-heading">Processor</div> 
+  <div class="processor-name">
+  <% ["Intel","AMD","Apple silicon"].forEach(p => { %>
+      <div class="filter2" 
+          onclick="toggleFilter('Filter_processor', '<%= p %>')"><img src="../Check.svg" alt="" class="check"><span><%= p %></span>
+      </div>
+  <% }); %>
+</div>
+</div>
+<div class="display-filter">
+  <div class="filter-heading">Display</div> 
+  <div class="display-name">
+  <% ["Oled","Led","Lcd"].forEach(d => { %>
+      <div class="filter3 " 
+          onclick="toggleFilter('Filter_display', '<%= d %>')"><img src="../Check.svg" alt="" class="check"><span><%= d %>
+      </div>
+  <% }); %>
+
+</div>
+</div>
+<div class="os-filter">
+  <div class="filter-heading">Operating system</div> 
+  <div class="os-name">
+ <% ["Windows", "Mac OS"].forEach(o => { %>
+  <div class="filter4" 
+      onclick="toggleFilter('Filter_os', '<%= o %>')"><img src="../Check.svg" alt="" class="check"><span><%= o%>
+  </div>
+<% }); %>
+</div>
+</div>
+</div>
+<a href="/technews" class="technews-link"><div class="technews">
+    <div class="technews-text">Wanna be a <span>Techie</span> ? Have some tech news.</div>
+</div></a>
+    <div class="track-price">
+      <img src="/product-filter-line.png" alt="" class="track-price-line1">
+       <div class="track-price-heading">Track price</div>
+       <form action="/pricetracker">
+         <button class="track-price-btn">Let’s go</button>
+       </form>
+      <img src="/product-filter-line.png" alt="" class="track-price-line2">
+
+    </div>
+    <div class="quote2">
+      <img src="/product-filter-line.png" alt="" class="track-price-line4">
+
+      <div class="quote-text2">"Love is great, but have you ever opened your laptop and it instantly connects to WiFi? That’s true happiness." </div>
+      <img class="quote-end-img2" src="/filter-quote-end.png">
+    </div>
+  </div>
+  <div class="product-next-wrapper">
+  <div class="product-wrapper">
+<!-- Display Phones -->
+ <div class="device-wrapper">
+  
+  <% laptops.forEach(laptop => { %>
+  
+    <div class="each-product" onclick="handleClick(event, '<%= laptop._id %>')">
+    <img src="<%=laptop.Imgurl%>" alt="" class="device-image">
+    <div class="device-info-wrapper">
+      <div class="device-name"><%=laptop.Product_name%></div>
+      <div class="device-info"><%= laptop.Product_filter_display %></div>
+      <div class="device-info"><%= laptop.Product_filter_processor %></div>
+      <div class="device-info"><%= laptop.Product_filter_graphics %></div>
+      <div class="device-info"><%= laptop.Product_filter_wifi %></div>
+      <div class="device-info"><%= laptop.product_filter_warranty %></div>
+
+    </div>
+    <div class="button-price-wrapper">
+      <div class="button-price-info-box">
+        <div class="product-price-info"><span class="from">From</span> <span>₹<%= new Intl.NumberFormat('en-IN').format(laptop.Price) %></span></div>
+        <div class="offers">No offers included</div>
+        <%const isInWishlist = userWishlist.some(item => 
+        item.productId.toString() === laptop._id.toString() && item.category === 'laptop')%>
+      
+   
+       <div class="wishlist-wrapper <%= isInWishlist ? 'clicked' : '' %>"  data-id="<%= laptop._id %>" data-category="laptop">
+      <form action="">
+      <button class="wishlist-btn"><img src="/<%= isInWishlist ? 'filter-click-wishlist.png' : 'filter-wishlist-black.png' %>" class="wishlist-icon" /></button>
+      <button class="wishlist2-btn"><img src="/filter-hover-wishlist.png" alt="" class="wishlist2"></button>
+  
+    </form>
+    </div>
+        
+        <form action="/compare/form?id1=<%= laptop.Product_name %>" method="POST">
+          <button class="compare-btn">Compare</button>
+        </form>
+        <form action="/chatbot" class="zenny-form">
+          <button class="zenny-btn"><span class="ask-text">Ask Zenny!</span><img src="/zennylogo-btn-main-filter.png" alt="" class="button-zenny"></button>
+       </form>
+      </div>
+    </div>
+  </div>
+
+<% }); %>
+ </div>
+  </div>
+  <div class="pagination">
+    <% if (currentPage > 1) { %>
+      <span onclick="refreshToNewPage('<%= currentPage - 1 %>','left')" class="nav-btn">
+            <img src="/filter-enable-prev.svg" alt="Previous" class="enabled-prev">
+      </span>
+    <% } else { %>
+        <span class="nav-btn disabled">
+            <img src="/filter-disable-prev.svg" alt="Prev Disabled" class="disabled-prev">
+        </span>
+    <% } %>
+
+    <span class="pageNo"> 0<%= currentPage %></span>
+
+    <% if (currentPage < totalPages) { %>
+      <span onclick="refreshToNewPage('<%= currentPage + 1 %>','right')" class="nav-btn">
+        <img src="/filter-enable-next.svg" alt="Next" class="enabled-next">
+      </span>
+    <% } else { %>
+      <span class="nav-btn disabled">
+        <img src="/filter-disable-next.svg" alt="Next Disabled" class="disabled-next">
+      </span>
+    <% } %>
+    
+</div>
+
+
+
+
+</div>
+  
+</div>
+    
+
+</div>
+
+<div class="footer">  <hr>
+   <footer>
+      
+   <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+   
+   <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+
+   <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+    <div class="overlay"></div></div>
+
+   
+
+   <div class="social">
+    <button><i class="fa-brands fa-facebook"></i></button>
+    <button><i class="fa-brands fa-linkedin"></i></button>  
+    <button><i class="fa-brands fa-youtube"></i></button> 
+    <button><i class="fa-brands fa-instagram"></i></button> 
+ </div>
+</div>
+   </footer>
+</div>
+</div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script src="../laptop-filter.js"></script>
+  <script src="../chatbot.js"></script>
+  <script src="/profile.js"></script>
+  <script src="/searchbox.js"></script>
+  <script src="/logout.js"></script>
+ 
+    <script>
+      
+    </script>
+    
+  <script>
+   function sendPostRequest() {
+    fetch('/compare/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id1: 'value' })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      // optionally redirect or update UI
+    });
+  }
+  </script>
+  </body>
+  </html>

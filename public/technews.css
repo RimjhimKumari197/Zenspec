@@ -1,0 +1,588 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #F3F1C1;
+    font-family: poppins;
+    overflow-x: hidden;
+     overflow-y: scroll; 
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.container{
+    position: relative;
+    top: -2px;
+    left: 5px;
+    height: 1750px;
+}
+
+.box1{
+    display: flex;
+    position: absolute;
+    top: 115px;
+    left: 84px;
+    z-index: 10;
+}
+
+.box1 p{
+    color: #000;
+font-family: Poppins;
+font-size: 47px;
+font-style: normal;
+font-weight: 300;
+line-height: 90px; 
+}
+
+.box1 span{
+    color: #000;
+font-family: "Zilla Slab Highlight";
+font-size: 57px;
+font-style: normal;
+font-weight: 400;
+line-height: 90px; 
+}
+
+.box1 img{
+    width: 37px;
+    height: 37px;
+    position: absolute;
+    top: 80px;
+    right: -60px;
+}
+
+.picbox{
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+    width: 1200px;
+   
+
+}
+
+.picbox .paper{
+    position: absolute;
+    top: 242px;
+    left: 57.4px;
+}
+
+.picbox .paper img{
+    width: 280px;
+height: 280px;
+
+aspect-ratio: 301.07/301.07;
+}
+
+.petrol{
+    position: absolute;
+    top: 388px;
+    left: 734.5px;
+}
+
+.petrol img{
+    width: 19px;
+height: 19px;
+
+}
+
+ .car{
+    position: absolute;
+    top: 375px;
+    left: 760.5px;
+}
+
+.car img{
+    width: 48px;
+    height: 48px;
+
+    aspect-ratio: 1/1;
+} 
+
+.city{
+    position: absolute;
+    top: 155px;
+    right: 73px;
+}
+
+.city img{
+    width: 396px;
+    height: 396px;
+    
+    aspect-ratio: 1/1; 
+}
+
+.box2{
+    margin-left: 42.6px;
+    margin-right: 41px;
+    position: absolute;
+      top: 406px;
+    width: 1445px;
+    height: 468px;
+    border-radius: 30px;
+background: #000;
+box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.speaker1{
+    position: absolute;
+    top: -130px;
+    left: 320px;
+}
+
+ .speaker1 img{
+    width: 116px;
+    height: 116px;
+
+} 
+
+.arrow1{
+    position: absolute;
+    top: -108px;
+left: 140px;
+}
+
+.arrow1 img{
+    height: 232px;
+    width: 232px;
+    border-radius: 130px;
+}
+
+.msg1{
+ position: absolute;
+left: 1140px;
+top: -90px;
+}
+
+.msg1 video{
+    width: 140px;
+    height: 140px;
+    
+ } 
+
+
+
+ #main-container {
+    max-width: 1350px;
+    margin: auto;
+    padding: 20px;
+    position: absolute;
+    top: 140px;
+    left: 25px;
+}
+#main-container h3{
+    color: #fff;
+    font-family: Poppins;
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    position: absolute;
+    left: 30px;
+     top: -120px;
+     width: 300px;
+    
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    top: 40px;
+
+
+}
+
+#news-wrapper {
+    overflow: hidden;
+    position: relative;
+    left: 20px;
+    top: 0px;
+}
+
+#news-container {
+    
+    display: flex;
+    gap: 65px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.news-card {
+    flex: 0 0 90%;
+   
+    max-width: 360px;
+    height: 180px;
+    padding: 5.3px;
+    background: white;
+    border-radius: 28px;
+    border: 8px solid #F59C42;
+   transition: border 0.4s ease-in-out,  box-shadow 0.4s ease-in-out;/* Smooth transition */
+    
+}
+.news-card:hover{
+    border: 8px solid #514a4a;
+    background-color: #F3F1C1;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3); /* Add shadow for effect */
+    
+}
+
+.news-card a {
+    text-decoration: none;
+    color: #000;
+    
+    font-family: Poppins;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+}
+.news-card p{
+    padding: 15px;
+}
+
+
+
+#prev-btn{
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 29px;
+    position: absolute;
+    top: 270px;
+    left: 6px;
+}
+#prev-btn:disabled {
+    color: gray;
+   
+}
+
+#next-btn{
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    border: none; 
+    font-size: 29px; 
+    position: absolute;
+    top: 270px;
+    right: 15px;
+}
+#next-btn:disabled {
+    color: gray;
+   
+}
+
+
+  .box3{
+    margin-left: 42.6px;
+    margin-right: 41px;
+    position: absolute;
+      top: 910px;
+    width: 1445px;
+    height: 468px;
+    border-radius: 30px;
+background: #000;
+box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.25);
+} 
+
+
+
+
+.arrow3{
+    position: absolute;
+    top: -165px;
+   left: 115px;
+}
+.arrow3 img{
+    height: 232px;
+    width: 232px;
+    border-radius: 130px;
+}
+.msg3{
+ position: absolute;
+left: 1140px;
+top: -155px;
+}
+.msg3 video{
+    width: 140px;
+    height: 140px;
+}
+
+#news-container3 h3{
+    color: #FFF;
+    
+    font-family: Poppins;
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    position:absolute;
+    top: -175px;
+    left: -5px;
+    width: 290px;
+}
+
+
+
+.news-link {
+    text-decoration: none; /* Removes underline */
+    color: black; /* Keeps the text color normal */
+    font-weight: 300; /* Makes it look like a heading */
+    font-size: 21px;
+    line-height: 30px;
+}
+ #news-wrapper3 {
+    width: 1350px;
+    overflow: hidden;
+    position: relative;
+    left: 40px;
+    top: 0px;
+}
+
+#swiper-wrapper {
+    display: flex;
+    gap: 77px;
+    transition: transform 0.5s ease-in-out;
+    width: 1350px; /* Ensure enough space for sliding */
+}
+
+ #news-container3 {
+    
+        position: absolute;
+        top: 190px;
+        left: 63px;
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    justify-content: space-around;
+        
+}  
+
+
+
+/* Individual news cards */
+.news-card3 {
+    border: 8px solid #F59C42;
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    color:#000;
+    transition: border 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth transition */
+    max-width: 360px;
+    height: 185px;
+
+    flex: 0 0 90%; /* Each card takes 30% width */
+    
+}
+
+.news-card3:hover {
+    border: 8px solid #514a4a;
+    background-color: #F3F1C1;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3); /* Add shadow for effect */
+ }
+
+ .news-card3 a{
+    text-decoration: none;
+    color: #000;
+    
+    font-family: Poppins;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+ }
+
+ .news-card3 P{
+
+    padding: 10px;
+ }
+
+ .dot-3 {
+   color: red;
+   font-size: 15px;
+} 
+
+
+ .swiper {
+    max-width: 1350px;
+    padding: 10px;
+
+    position: absolute;
+   left: -40px;
+    overflow: hidden;
+   
+}
+
+
+/* Style buttons */
+
+ .swiper-prev3{
+    height: 50px;
+    width: 40px;
+    position: absolute;
+    left: 18px;
+    top: 280px;
+    cursor: pointer;
+    background:transparent;
+    color: white;
+    border: none;
+    z-index: 3;
+    font-size: 29px;
+      
+}
+.swiper-next3{
+    height: 50px;
+    width: 40px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    position: absolute;
+    top: 280px;
+    left: 1375px;
+z-index: 3;
+font-size: 29px;
+
+
+} 
+.swiper-prev3:disabled {
+ 
+    pointer-events: none;
+    color: gray;
+   
+}
+.swiper-next3:disabled{
+   
+    pointer-events: none;
+    color: gray;
+   
+}
+
+/* box-4 */
+ 
+
+.box4{
+    position: absolute;
+    top: 1375.5px;
+    left: 130px;
+    width: 1103px;
+    height: 239px;
+    margin: 80px;
+    border-radius: 30px;
+border: 8px solid #000;
+background: #FFF;
+display: flex;
+justify-content: center;
+z-index: 30;
+}
+
+ .box4 p{
+    color: #000;
+    font-family: "Annie Use Your Telescope";
+    font-size: 51.2px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 78px ;
+    z-index: 3;
+    margin-left: -2px;
+    margin-top: 35px;
+    
+ }
+
+
+
+.leftbox{
+    position: absolute;
+    left: 48px;
+    bottom: 60px;
+}
+.leftbox img{
+    width: 195px;
+height: 195px;
+
+}
+.rightbox{
+    position: absolute;
+top: 1485px;
+right: 33px;
+}
+.rightbox img{
+    height: 195px;
+    width: 195px;
+}
+
+.sml{
+    position: absolute;
+    top: 100px;
+    right: 58px;
+}
+.sml img{
+    height:104px;
+    width: 104px;
+}
+.un-l{
+    position: absolute;
+    left: 25px;
+    top: 201px;
+
+}
+.un-l img{
+    width: 57px;
+height: 55px;
+
+}
+
+
+.up-r{
+    position: absolute;
+    top: 3px;
+    right: 30px;
+}
+.up-r img{
+    width: 57px;
+    height: 55px;
+    
+}
+.header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index:2000;
+}
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+ 

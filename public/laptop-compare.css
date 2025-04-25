@@ -1,0 +1,200 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F3F1C1;
+    font-family: poppins;
+    
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* height: 100vh;
+    width: 100vw; */
+    
+   
+}
+.header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 2000;
+  }
+.main{
+    position: relative;
+    width: 100vw;
+    margin-top: 150px;
+  }
+.main-heading{
+color: #000;
+font-family: Poppins;
+font-size: 38px;
+font-style: normal;
+font-weight: 300;
+line-height: 150%; /* 72px */
+margin-left: 100px;
+position: relative;
+}
+.main-heading span{
+color: #000;
+font-family: "Zilla Slab Highlight";
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%;
+}
+.main-heading img{
+height: 40px;
+width: 40px;
+position: relative;
+top: 5px;
+}
+.compare-wrapper{
+width: 1424px;
+/* height: 500px; */
+border-radius: 32px;
+border: 8px solid #000;
+background: #FFF;
+margin-left: 48px;
+margin-top: 40px;
+position: relative;
+margin-bottom:45px ;
+}
+.image-wrapper{
+    display: flex;
+    width: 1424px;
+    /* border: 2px solid black; */
+    /* margin-left:34.5px; */
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+.device1-img,.device2-img{
+    height: 430px;
+    width: 430px;
+}
+.device-1,.device-2{
+    width:712px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.device-2{
+    border-left: 2px solid #6F6D6D;
+}
+.device2-name ,.device1-name{
+text-align: center;
+color: #000;
+font-family: Poppins;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 54px */
+
+}
+.partition{
+    width: 1374px;
+    position: relative;
+    left: -25px;
+    
+    margin-top: 40px;
+    margin-bottom: 5px;
+
+    
+}
+.compare-partition{
+   width: 1355px;
+}
+.term-explanation{
+    margin-top: 80px;
+    position: relative;
+}
+.term-explain-text{
+    color: #000;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #000;
+font-family: Poppins;
+font-size: 38px;
+font-style: normal;
+font-weight: 300;
+line-height: 150%; /* 72px */
+text-align: center;
+position: relative;
+z-index: 10;
+}
+.main-compare-arrow{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    left: 800px;
+    top: -40px;
+    z-index: 5;
+}
+.zenny-btn{
+    width: 210px;
+    height: 55px;
+    border-radius: 23px;
+    border: 1px solid #000;
+    background: #000;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+    top: -120px;
+    left: 600px;
+    z-index: 10;
+    transition: background 0.4s ease-out,color 0.4s ease-out;
+
+}
+.zenny-form{
+    position: absolute;
+   
+}
+.zenny-btn .ask-text{
+    position: absolute;
+    top: 15px;
+    left: 28px;
+}
+.button-zenny{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+}
+.zenny-btn .ask-text,.zenny-btn .button-zenny{
+  transition: transform 0.4s ease-out;
+
+}
+.zenny-btn:hover{
+    background-color: #ABABAB;
+    color: #000;
+}
+.quote img{
+    width: 1200px;
+    height: 130px;
+    margin-left: 120px;
+    margin-top: 30px;
+  
+  }
+.bottom-end{
+    margin-top: 40px;
+    margin-bottom: 25px;
+    width: 330px;
+    margin-left: 555px;
+   }
+.main-compare-left{
+    height: 520px;
+position: absolute;
+left: 0px;
+top: 160px;
+}
+.main-compare-right{
+    height: 540px;
+position: absolute;
+right: 0px;
+top: -80px;
+}

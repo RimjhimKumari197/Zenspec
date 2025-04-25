@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Plus+Jakarta+Sans:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/compareform.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/searchbox.css">
+    
+</head>
+<body>
+    <div id="full-container">
+        <div class="header"> 
+            <header>
+            <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+            <div class="middle"> <nav>
+                 <ul class="nav-links">
+                <li><form action="/search">
+                    <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                    <div class="suggestion-box3" id="suggestions3"></div>
+    
+                    </input>
+                </div>
+            </form></li>
+                <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+                <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+                <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+                <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+                <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+                <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+                 </ul> 
+            </nav></div>
+            <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+        </header>
+        <div class="dropdown-profile">
+           
+           
+            <div class="dropdown-content-profile" id="dropdown-content-profile">
+                <div class="triangle"></div>
+                <div class="order-list" >
+                   <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+                   <hr class="one">
+                   <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+                   <hr class="two">
+                   <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+                   <hr class="three">
+                   <a href="/logout"> <span class="log" id="log">Log out</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+<form action="/chatbot" method="get">
+<button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+<div class="container2">
+   
+    <!-- App header -->
+    <div class="app-header2">
+        <div class="heading2">Hey, Buddy !</div>
+        <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+    </div>
+    <!-- button list -->
+     <button class="explain">Explain the page.</button><br>
+     <button class="summarize">Summarize the page.</button>
+     <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+     <!-- chats container2  -->
+     <div class="chats-container2"></div>
+     <!-- prompt container2 -->
+     <div class="prompt-container2">
+        <div class="prompt-wrapper2">
+            <form action="" class="prompt-form2">
+                <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                <div class="prompt-action2">
+                    <!-- file-upload-wrapper -->
+                    <div class="file-upload-wrapper2">
+                        <img src="#" alt="" class="file-preview2">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                        <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                        <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                        <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                    </div>
+                    <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                    <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                </div>
+            </form>
+            <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+            <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+            <!-- <button id="explain-chats-btn">explain</button> -->
+
+        </div>
+        
+     </div>
+    </div>
+
+
+</div>
+<div class="main">
+    <img src="/compare-left-img.png" alt="" class="left-img">
+    <img src="/compare-smily.png" alt="" class="smily">
+    <img src="/compare-right-img.png" alt="" class="right-img">
+    <div class="main-heading">Compare <span>Gadgets</span></div>
+    <img src="/compare-arrow.png" alt="" class="compare-arrow">
+    <form action="/compare" class="compare-form" method="POST">
+        <div class="input-wrapper">
+        <input type="text" class="device-1" placeholder="Type gadget 1" id="item1" name="item1" autocomplete="off">
+        <div class="suggestion-box" id="suggestions1"></div>
+    </div>
+        
+        <img src="/vs.png" alt="" class="vs">
+        <div class="input-wrapper">
+        <input type="text" class="device-2" placeholder="Type gadget 2" id="item2" name="item2" autocomplete="off">
+        <div class="suggestion-box2" id="suggestions2"></div>
+    </div>
+        <button class="compare-btn" type="submit">Let’s go</button>
+        <div class="note"><span>Note*</span> Zenspec will support the comparison of more than two gadgets in future updates. </div>
+    </form>
+</div>
+<div class="footer">  <hr>
+    <footer>
+       
+    <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+    
+    <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+ 
+    <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+     <div class="overlay"></div></div>
+ 
+    
+ 
+    <div class="social">
+     <button><i class="fa-brands fa-facebook"></i></button>
+     <button><i class="fa-brands fa-linkedin"></i></button>  
+     <button><i class="fa-brands fa-youtube"></i></button> 
+     <button><i class="fa-brands fa-instagram"></i></button> 
+  </div>
+ </div>
+    </footer>
+ </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+    if("<%=id1%>"){
+    document.querySelector(".device-1").value="<%=id1%>";
+    }
+    const html = document.documentElement;
+
+   
+const fc = document.querySelector("#full-container");
+const header=document.querySelector(".header");
+window.addEventListener("load", () => {
+  
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      gsap.from(fc,{
+        y: "10vh",
+        duration: 1.5,
+        ease: "elastic.out(1, 0.5)",
+        onComplete: () => {
+          gsap.set(fc, { clearProps: "transform" });
+         
+        },
+      });
+    });
+  });
+   });
+</script>
+<script src="/chatbot.js"></script>
+<script src="/profile.js"></script>
+<script src="/compare-form.js"></script>
+<script src="/logout.js"></script>
+<script src="/searchbox.js"></script>
+
+
+</body>
+</html>

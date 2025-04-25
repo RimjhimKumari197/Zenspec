@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zeyada&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/phone-detail.css">
+    <link rel="stylesheet" href="/specification-phone-detail.css">
+    <link rel="stylesheet" href="/benchmark-phone-detail.css">
+    <link rel="stylesheet" href="/proscons-phone-detail.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/searchbox.css">
+</head>
+
+<body>
+    <div class="header"> 
+        <header>
+        <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+        <div class="middle"> <nav>
+             <ul class="nav-links">
+            <li><form action="/search">
+                <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                <div class="suggestion-box" id="suggestions1"></div>
+
+                </input>
+            </div>
+        </form></li>
+            <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+            <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+            <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+            <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+            <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+             </ul> 
+        </nav></div>
+        <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+    </header>
+    <div class="dropdown-profile">
+       
+       
+        <div class="dropdown-content-profile" id="dropdown-content-profile">
+            <div class="triangle"></div>
+            <div class="order-list" >
+               <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+               <hr class="one">
+               <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+               <hr class="two">
+               <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+               <hr class="three">
+               <a href="/logout"> <span class="log" id="log">Log out</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+  <div class="main2">
+  <form action="/chatbot" method="get">
+  <button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+  <div class="container2">
+     
+      <!-- App header -->
+      <div class="app-header2">
+          <div class="heading2">Hey, Buddy !</div>
+          <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+      </div>
+      <!-- button list -->
+       <button class="explain">Explain the page.</button><br>
+       <button class="summarize">Summarize the page.</button>
+       <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+       <!-- chats container2  -->
+       <div class="chats-container2"></div>
+       <!-- prompt container2 -->
+       <div class="prompt-container2">
+          <div class="prompt-wrapper2">
+              <form action="" class="prompt-form2">
+                  <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                  <div class="prompt-action2">
+                      <!-- file-upload-wrapper -->
+                      <div class="file-upload-wrapper2">
+                          <img src="#" alt="" class="file-preview2">
+                          <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                          <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                          <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                          <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                      </div>
+                      <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                      <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                  </div>
+              </form>
+              <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+              <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+              <!-- <button id="explain-chats-btn">explain</button> -->
+
+          </div>
+          
+       </div>
+      </div>
+ 
+
+</div>
+    <div class="main">
+        <div class="main-product">
+            
+                <img src="/product-point-arrow.png" alt="" class="product-point-arrow">
+                <img src="/top-right-corner.png" alt="" class="top-right-corner">
+                <div class="img-box">
+                    <img src="<%= phone.Imgurl %>" alt="" class="product-img">
+                </div>
+                <div class="border-box"></div>
+                <div class="summary-box">
+                    
+                    <div class="summary-wrapper">
+                        <div class="product-name"><%= phone.product_name %></div>
+                        <div class="rating-pricing">
+                            <div class="rating">
+                                <span id="rateYo"></span>
+                                <span class="rating-no"><%= phone.Ratings %></span>
+                            </div>
+                            <div class="pricing">
+                                <div class="price"><span class="from">From</span> <span>₹<%= new Intl.NumberFormat('en-IN').format(phone.Price) %></span> </div>
+                                <div class="offers">No offers included</div>
+                            </div>
+                            <div class="wishlist-share">
+                                <%const isInWishlist = userWishlist.some(item => 
+                                item.productId.toString() === phone._id.toString() && item.category === 'phone')%>
+                              
+                           
+                            <div class="wishlist-wrapper <%= isInWishlist ? 'clicked' : '' %>"  data-id="<%= phone._id %>" data-category="phone">
+                              <form action="">
+                              <button class="wishlist-btn"><img src="/<%= isInWishlist ? 'detail-wishlist3.png' : 'detail-wishlist1.png' %>" class="wishlist-icon" /></button>
+                              <button class="wishlist2-btn"><img src="/detail-wishlist2.png" alt="" class="wishlist2"></button>
+                          
+                            </form>
+                            </div>
+                                <div class="share">
+                                    <img src="/shareicon.png" alt="" class="share-icon">
+                                </div>
+                            </div>
+                           
+                           
+                            
+                           
+                        </div>
+                        <div class="compare-track">
+                            <form action="/compare/form?id1=<%= phone.product_name %>" method="POST" class="compare">
+                                <button class="compare-btn">Compare</button>
+                            </form>
+                            <div class="track">
+                                <% if (phone.Product_track_link=="-") { %>
+                                    <a href="#" class="trackprice-link" style="text-decoration: none;" target="_blank"><button class="track-btn">Track price</button></a>
+                                <% } else{ %>
+                                <a href="<%=phone.Product_track_link  %>" class="trackprice-link" style="text-decoration: none;" target="_blank"><button class="track-btn">Track price</button></a>
+                                <% } %>
+                                </div>
+                        </div>
+                        <div class="yt-benchmark">
+                            <div class="yt">
+                                <img src="/youtube.png" alt="" class="yt-img">
+                                <a href="<%= phone.Youtube_review_link %>" class="yt-link" target="_blank">YouTube reviews</a>
+                            </div>
+                            <div class="benchmark">
+                                <a class="benchmark-link" onclick="scrollToSection()">Benchmark scores</a>
+                            </div>
+                        </div>
+                        <div class="buying-links">
+                            <div class="buying-link-txt">Buying links</div>
+                            <div class="links">
+                                <a href="<%= phone.Amazon_link %>" class="amazon-link" target="_blank" ><button class="amazon-link-btn"><img src="/amazon.png" alt="" class="amazon-img"></button></a>
+                                <a href="<%= phone.Flipkart_link %>" class="flipkart-link" target="_blank" ><button class="flipkart-link-btn"><img src="/flipkart.png" alt="" class="flipkart-img"></button></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="specification">
+                    <div class="top-margin">
+                        <div class="line">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="specification-wrapper">
+                        <div class="specification-heading">Specifications</div>
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Network</div>
+                            <div class="specs">
+                                <div class="specs-name">Technology</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Technology %></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Launch date</div>
+                            <div class="specs">
+                                <div class="specs-name">Announced</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Announced %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Status</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Status %></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Body</div>
+                            <div class="specs">
+                                <div class="specs-name">Dimensions</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Dimensions %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Weight</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Weight %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Build</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Build %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Sim</div>
+                                <div class="specs-description">
+                                    <% phone.Sim.forEach(element => { %>
+                                        <div class="desc-text"><%= element %>
+                                        </div>
+                                    <% }) %>
+                                   
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Water / Dust proofing</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%=phone.Water_Dust_proofing%></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Display</div>
+                            <div class="specs">
+                                <div class="specs-name">Type</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Display_type %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Size</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Size %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Resolution</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%=phone.Resolution%></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Protection</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Protection %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Always on display</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Always_on_display %></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Platform</div>
+                            <div class="specs">
+                                <div class="specs-name">OS</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.OS %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Chipset</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%=phone.Chipset%></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">CPU</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.CPU %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">GPU</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.GPU %>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Memory</div>
+                            <div class="specs">
+                                <div class="specs-name">Card slot</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Card_slot %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Internal</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Internal %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Rom type</div>
+                                <div class="specs-description">
+                                    <%phone.Rom_type.forEach(element => { %>
+                                    <div class="desc-text"><%= element %></div>
+                                     
+                                    <% }) %>
+
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Main camera</div>
+                            <div class="specs">
+                                <div class="specs-name"><%= phone.Back_camera_setup %></div>
+                                <div class="specs-description">
+                                    <% phone.Back_camera_setup_info.forEach(element => { %>
+                                        <div class="desc-text">
+                                            <%=element%>
+                                        </div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Features</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Back_features %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Video</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Back_video %></div>
+
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Selfie camera</div>
+                            <div class="specs">
+                                <div class="specs-name"><%= phone.Front_camera_setup %></div>
+                                <div class="specs-description">
+                                    <div class="desc-text">
+                                        <%= phone.Front_camera_setup_info %>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Features</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Front_features %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Video</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Front_video %></div>
+
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Sound</div>
+                            <div class="specs">
+                                <div class="specs-name">Loudspeaker</div>
+                                <div class="specs-description">
+                                    <div class="desc-text">
+                                        <%= phone.Sound_loudspeaker %>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">3.5 mm jack</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Jack %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Wireless DAC</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Wireless_DAC %></div>
+
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+                        
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Communications</div>
+                            <div class="specs">
+                                <div class="specs-name">WLAN</div>
+                                <div class="specs-description">
+                                    <div class="desc-text">
+                                        <%= phone.WLAN %>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Bluetooth</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Bluetooth %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Positioning</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Positioning %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">NFC</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.NFC %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Infrared port</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Infrared_port %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Radio</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.Radio %></div>
+
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">USB</div>
+                                <div class="specs-description">
+                                    <div class="desc-text"><%= phone.USB %></div>
+
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+                        
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Features</div>
+                            <div class="specs">
+                                <div class="specs-name">Sensors</div>
+                                <div class="specs-description">
+                                    <div class="desc-text">
+                                        <%= phone.Sensors %>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Battery</div>
+                            <div class="specs">
+                                <div class="specs-name">Type</div>
+                                <div class="specs-description">
+                                    <div class="desc-text">
+                                        <%= phone.Batter_type %>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="specs">
+                                <div class="specs-name">Charging</div>
+                                <div class="specs-description">
+                                    <% phone.Charging.forEach(element => { %>
+                                        <div class="desc-text">
+                                            <%= element %>
+                                        </div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="specification-container">
+                            <hr class="hr-line">
+                            <div class="sub-spec-heading">Colors</div>
+                            <div class="specs">
+                                <div class="specs-name">Shades</div>
+                                <div class="specs-description">
+                                    <div class="desc-text">
+                                        <%= phone.Shades %>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+ 
+                </div>
+                <div class="bottom-margin"></div>
+                </div>
+                <div class="benchmark-box" id="benchmark-box">
+                    <div class="top-margin">
+                
+                    </div>
+                 <div class="benchmark-wrapper">
+                    <div class="benchmark-heading">Benchmarks</div>
+                    <div class="benchmark-container">
+                        <hr class="hr-line">
+                        <div class="sub-bench-heading">Performance</div>
+                        <div class="bench">
+                            <div class="bench-name">AnTuTu</div>
+                            <div class="bench-description">
+                                <div class="desc-text"><%= phone.AnTuTu %></div>
+
+                             </div>
+                        </div>
+                         <div class="bench">
+                            <div class="bench-name">GeekBench</div>
+                            <div class="bench-description">
+                                <div class="desc-text"><%= phone.GeekBench %></div>
+
+                            </div>
+                        </div>
+                        <div class="bench">
+                            <div class="bench-name">3DMark</div>
+                            <div class="bench-description">
+                                <div class="desc-text"><%= phone.Mark_three_d %></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benchmark-container">
+                        <hr class="hr-line">
+                        <div class="sub-bench-heading">Tests</div>
+                        <div class="bench">
+                            <div class="bench-name">Display</div>
+                            <div class="bench-description">
+                                <div class="desc-text"><%= phone.Test_display %></div>
+
+                            </div>
+                        </div>
+                        <div class="bench">
+                            <div class="bench-name">Loudspeaker</div>
+                            <div class="bench-description">
+                                <div class="desc-text"><%= phone.Test_loudspeaker %></div>
+
+                            </div>
+                        </div>
+                        <div class="bench">
+                            <div class="bench-name">Battery life</div>
+                            <div class="bench-description">
+                                <div class="desc-text"><%= phone.Battery_life %></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            <div class="bottom-margin">
+                
+            </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="top-margin">
+                
+                    </div>
+                    <div class="pros-cons-wrapper">
+                        <div class="pros-heading">Pros</div>
+                        <div class="pros-container">
+                            <hr class="hr-line">
+                            <div class="pros">
+                                <ul class="pros-list">
+                                 <% phone.Pros.forEach(element => { %>
+                                    <li><%=element%></li>
+                                  
+                                 <% }) %> 
+                                </ul>
+                                
+                                
+                            </div>
+                        </div>
+
+                        <div class="cons-heading">Cons</div>
+                        <div class="cons-container">
+                            <hr class="hr-line">
+                            <div class="cons">
+                                <ul class="cons-list">
+                                    <% phone.Cons.forEach(element => { %>
+                                        <li><%=element%></li>
+                                      
+                                     <% }) %>   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-margin">
+                
+                    </div>
+                </div>
+                <div class="disclaimer">
+                    <div class="disclaimer-text"><span>Disclaimer*</span> We can not guarantee that the information on this page is 100% correct.
+                    </div>
+                    
+                </div>
+                <div class="category">
+                    <div class="top-margin">
+                
+                    </div>
+                    <div class="category-wrapper">
+                        <img src="/upline-category.png" alt="" class="upline">
+                        <div class="category-box">
+                            <div class="category-heading">Zenspec’s category selection</div>
+                            <div class="category-name">
+                                <% for( let index = 0; index < phone.Filter_profession_tag.length; index++ ) { %>
+                                         <% if (index==phone.Filter_profession_tag.length-1) { %>
+                                            <%= phone.Filter_profession_tag[index] %>
+                                         
+                                         <% } else { %>
+                                            <%=phone.Filter_profession_tag[index]%>,
+                                            <% } %>
+                                <% } %>
+                            </div>
+                        </div>
+                        <img src="/downline-category.png" alt="" class="downline">
+                        
+                    </div>
+                    <div class="bottom-margin">
+
+                    </div>
+                </div>
+                <div class="review">
+                    <img src="/review-arrow.png" alt="" class="arrow">
+
+                    <div class="review-wrapper">
+                        <div class="review-heading">
+                            We would love a review about the product from you guys !!
+                        </div>
+                        <div class="review-form-box">
+                            <img src="/up-droplet.png" alt="" class="up-droplet">
+                            <!-- Unified Review Form (used for both add + edit) -->
+                      <form id="unified-review-form" action="/phones/<%= phone._id %>/review" method="POST" class="review-form"  >
+                    <input type="text" name="comment" class="review-input" id="main-review-input" placeholder="Review the product" required>
+  
+                        <button type="submit" class="review-btn" id="review-submit-btn">Comment</button>
+                    </form>
+                    
+                    <!-- Existing Reviews -->
+                    <div class="reviews-section">
+                        
+                        <% phone.reviews.forEach(review => { %>
+                            <div id="review-<%= review._id %>" class="single-review">
+                                <div class="user-name"><span><%= review.username %></span>:</div>
+      
+                                <span id="comment-text-<%= review._id %>" class="comment-text"><%= review.comment %></span>
+                                <div class="edit-delete">
+                                <% if (review.user.equals(currUser._id)) { %>
+                                <button type="button" onclick="startEditReview('<%= review._id %>', '<%= phone._id %>')" class="edit">Edit</button>
+
+                                <form action="/phones/<%= phone._id %>/review/<%= review._id %>/delete" method="POST" style="display:inline;">
+                            <button type="submit" class="delete">Delete</button>
+                        </form>
+                    <% } %>
+                </div>
+                    </div>
+                
+               <% }) %>
+            </div>
+
+                            <img src="/down-droplet.png" alt="" class="down-droplet">
+                        </div>
+                    </div>
+                </div>
+                <div class="quote">
+                    
+                    <img src="/product-quote.png" alt="" class="quote-text">
+                   
+                </div>
+                <img src="/bottom-end.png" alt="" class="bottom-end">
+                <img src="/bottom-left-corner.png" alt="" class="bottom-left-corner">
+                <img src="/bottom-right-corner.png" alt="" class="bottom-right-corner">
+
+        
+
+            
+           
+        </div>
+    </div>
+    <div class="footer">  <hr>
+   <footer>
+      
+   <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+   
+   <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+
+   <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+    <div class="overlay"></div></div>
+
+   
+
+   <div class="social">
+    <button><i class="fa-brands fa-facebook"></i></button>
+    <button><i class="fa-brands fa-linkedin"></i></button>  
+    <button><i class="fa-brands fa-youtube"></i></button> 
+    <button><i class="fa-brands fa-instagram"></i></button> 
+ </div>
+</div>
+   </footer>
+</div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    <script src="/product-detail.js"></script>
+    <script src="/phone-detail.js"></script>
+    <script src="/profile.js"></script>
+    <script src="/searchbox.js"></script>
+  <script src="/chatbot.js"></script>
+  <script src="/logout"></script>
+  
+
+        
+         <script>
+        $(document).ready(function() {
+            let rating =parseInt("<%=phone.Ratings%>"); // Can be dynamic
+
+            $("#rateYo").rateYo({
+                rating: rating,         // Accepts both integer & decimal values
+                starWidth: "23px",      // Adjust star size
+                spacing: "10px",         // Space between stars
+                fullStar: false,        // Allows partial stars
+                readOnly: true,         // Make it non-editable (change to false if needed)
+                normalFill: "#fff",     // Color of empty stars
+                ratedFill: "#F59C42"    // Color of filled stars
+            });
+
+            $("#ratingValue").text(rating); // Display the rating
+        });
+        
+        function sendPostRequest() {
+    fetch('/compare/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id1: 'value' })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      // optionally redirect or update UI
+    });
+  }
+    </script>
+    <script>
+  let isEditing = false;
+  let originalAction = `/phones/<%= phone._id %>/review`;
+  let reviewForm = document.getElementById('unified-review-form');
+  let reviewInput = document.getElementById('main-review-input');
+  let reviewButton = document.getElementById('review-submit-btn');
+
+  function startEditReview(reviewId, phoneId) {
+    const commentText = document.getElementById(`comment-text-${reviewId}`).innerText;
+
+    // Fill the input with existing comment
+    reviewInput.value = commentText;
+    
+    // Change form action to update route
+    reviewForm.action = `/phones/${phoneId}/review/${reviewId}/edit`;
+
+    // Change button text
+    reviewButton.innerText = "Update";
+    
+    // Set editing state
+    isEditing = true;
+  }
+
+  // Optional: reset form after submit (for both comment + update)
+  reviewForm.addEventListener("submit", function () {
+    setTimeout(() => {
+      reviewForm.action = originalAction;
+      reviewInput.value = "";
+      reviewButton.innerText = "Comment";
+      isEditing = false;
+    }, 100); // Let submit happen, then reset
+  });
+  
+</script>
+
+   
+       
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", "serif";
+}
+:root {
+  /* dark theme colors */
+  --text-color: #fff;
+  --subheading-color: #6dc0ff;
+  --placeholder-color: #b9b9b9;
+  --primary-color: #f3f1c1;
+  --secondary-color: #f59c42;
+  --secondary-hover-color: #d2ddf2;
+  --scrollbar-color: #a2aac2;
+  --prompt-container-color: #000;
+  --theme-btn-bgcolor: #000;
+  --theme-btn-txtcolor: #fff;
+  --heading-color: #f3f1c1;
+  --webkit-stroke: #000;
+}
+body.dark-theme {
+  --text-color: #fff;
+  --subheading-color: #6dc0ff;
+  --placeholder-color: #b9b9b9;
+  --primary-color: #000;
+  --secondary-color: #f59c42;
+
+  --secondary-hover-color: #333e58;
+  --scrollbar-color: #626a7f;
+  --heading-color: #000;
+  --webkit-stroke: #fff;
+  --theme-btn-bgcolor: #fff;
+  --theme-btn-txtcolor: #000;
+  --prompt-container-color: #000;
+}
+body.dark-theme .zenspec-logo {
+  content: url("chatbot-dark-Zenspec-logo.png");
+}
+body.dark-theme .minimize-btn-img {
+  content: url("dark-chatbot-minimize.png");
+}
+body.dark-theme .chatbotline {
+  content: url("dark-chatbot-lines.png");
+}
+body {
+  background-color: #000;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.main {
+  height: 100vh;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  position: relative;
+}
+.chatbotline {
+  position: absolute;
+  top: -25px;
+  left: 380px;
+  height: 130px;
+}
+.minimize-btn-img {
+  height: 23px;
+  width: 23px;
+}
+.minimize-btn {
+  position: absolute;
+  right: 40px;
+  top: 50px;
+  background-color: transparent;
+  border: none;
+}
+.zenspec-logo {
+  height: 90px;
+  width: 90px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+.container {
+  overflow-y: auto;
+  padding: 70px 0 60px;
+  max-height: calc(100vh - 127px);
+  /* scrollbar-color: var(--scrollbar-color) transparent; */
+  /* scroll-behavior: unset; */
+}
+
+.container
+  :where(
+    .app-header,
+    .suggetions,
+    .message,
+    .prompt-wrapper,
+    .disclaimer-text
+  ) {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  max-width: 980px;
+}
+/* app header styling */
+.container .app-header {
+  margin-top: 4vh;
+  position: relative;
+}
+.app-header .heading {
+  width: fit-content;
+  color: var(--heading-color);
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: var(--webkit-stroke);
+  font-family: Poppins;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 480;
+  line-height: normal;
+}
+.app-header .sub-heading {
+  margin-top: -5px;
+  color: var(--subheading-color);
+
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #000;
+  font-family: Poppins;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 480;
+  line-height: normal;
+}
+.app-header .sub-heading span {
+  color: #f59c42;
+}
+/* suggetion list styling */
+.container .suggetions {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  margin-top: 9.5vh;
+  scrollbar-width: none;
+}
+.container :is(.app-header, .suggetions) {
+  /* display: none; */
+}
+.suggetions .suggetions-item {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  width: 220px;
+  border-radius: 12px;
+  list-style: none;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+.suggetions .suggetions-item:hover {
+  background-color: var(--secondary-hover-color);
+}
+.suggetions .suggetions-item .text {
+  font-size: 1.1rem;
+}
+.suggetions .suggetions-item span {
+  height: 45px;
+  width: 45px;
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d7efd;
+  border-radius: 50%;
+  align-self: flex-end;
+  background-color: var(--primary-color);
+}
+.suggetions .suggetions-item:nth-child(2) span {
+  color: #28a745;
+}
+.suggetions .suggetions-item:nth-child(3) span {
+  color: #ffc107;
+}
+.suggetions .suggetions-item:nth-child(4) span {
+  color: #6f42c1;
+}
+/* chats container */
+.container .chats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.chats-container .message {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+}
+.chats-container .bot-message .Zenny {
+  height: 43px;
+  width: 43px;
+  flex-shrink: 0;
+  padding: 6px;
+  align-self: flex-start;
+  margin-right: -7px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-hover-color);
+}
+.chats-container .bot-message.loading .Zenny {
+  animation: rotate 3s linear infinite;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.chats-container .message .message-text {
+  padding: 3px 16px;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+.chats-container .bot-message {
+  margin: 9px auto;
+}
+.chats-container .bot-message .message-text {
+  border-radius: 3px 13px 13px 13px;
+  background: var(--subheading-color);
+  color: #000;
+
+  
+}
+.chats-container .user-message {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.chats-container .user-message .message-text {
+  padding: 12px 16px;
+  max-width: 75%;
+  background: var(--secondary-color);
+  border-radius: 13px 13px 3px 13px;
+  color: black;
+}
+.chats-container .user-message .img-attachment {
+  width: 50%;
+  border-radius: 13px 3px 13px 13px;
+  margin-top: -7px;
+}
+.chats-container .user-message .file-attachment {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 13px 3px 13px 13px;
+  margin-top: -7px;
+  background-color: var(--secondary-color);
+}
+.chats-container .user-message .file-attachment span {
+  color: #1d7efd;
+}
+/* prompt container styling */
+.prompt-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 0;
+  background-color: var(--primary-color);
+}
+.prompt-container :where(.prompt-wrapper, .prompt-form, .prompt-action) {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 56px;
+}
+.prompt-wrapper .prompt-form {
+  width: 100%;
+  height: 100%;
+  background: var(--prompt-container-color);
+  border-radius: 100px;
+  border: 2px solid #f59c42;
+
+  transition: all 300ms ease-out;
+}
+.prompt-wrapper .prompt-form:hover {
+  background-color: #fff;
+}
+.prompt-form .prompt-input {
+  height: 100%;
+  width: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding-left: 24px;
+  color: #fff;
+  /* cursor: pointer; */
+}
+.prompt-form .prompt-input:hover {
+  color: #000;
+}
+.prompt-form .prompt-input::placeholder {
+  color: var(--placeholder-color);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.prompt-wrapper button {
+  width: 56px;
+  height: 56px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--text-color);
+  background-color: var(--prompt-container-color);
+  font-size: 25px;
+  font-variation-settings: "wght" 300;
+  transition: 0.3s ease-out;
+}
+.prompt-wrapper .prompt-form:hover #add-file-btn {
+  color: #000;
+  background-color: #fff;
+}
+.prompt-wrapper :is(.file-icon, #cancel-file-btn) {
+  background: var(--secondary-hover-color);
+  background: var(--secondary-color);
+}
+.prompt-wrapper #theme-toggle-btn {
+  height: 55px;
+  width: 63px;
+  border: 2px solid #f59c42;
+  font-size: 1.52rem;
+
+  background-color: var(--theme-btn-bgcolor);
+  color: var(--theme-btn-txtcolor);
+  transition: all 300ms ease-out;
+}
+.prompt-wrapper #delete-chats-btn {
+  height: 55px;
+  width: 63px;
+  border: 2px solid #f59c42;
+  font-size: 1.52rem;
+}
+.prompt-wrapper #delete-chats-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+.prompt-form .prompt-action {
+  margin-right: 7px;
+  gap: 5px;
+}
+.prompt-wrapper .prompt-form :where(.file-upload-wrapper, button, img) {
+  position: relative;
+  height: 45px;
+  width: 45px;
+}
+.prompt-form #send-prompt-btn {
+  color: #fff;
+  background: var(--subheading-color);
+  display: none;
+}
+.prompt-form .prompt-input:valid ~ .prompt-action #send-prompt-btn {
+  display: block;
+}
+.prompt-form #send-prompt-btn:hover {
+  background: #0264e3;
+}
+.prompt-form .file-upload-wrapper :where(button, img) {
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+  display: none;
+}
+.prompt-form .file-upload-wrapper #add-file-btn,
+.prompt-form .file-upload-wrapper.active.img-attached img,
+.prompt-form .file-upload-wrapper.active.file-attached .file-icon,
+.prompt-form .file-upload-wrapper.active:hover #cancel-file-btn {
+  display: block;
+}
+.prompt-form .file-upload-wrapper.active #add-file-btn {
+  display: none;
+}
+.prompt-form :is(#cancel-file-btn, #stop-response-btn:hover) {
+  color: #d62939;
+}
+.prompt-form .file-icon {
+  color: #1d7efd;
+}
+.prompt-form #stop-response-btn,
+body.bot-responding .prompt-form .file-upload-wrapper {
+  display: none;
+}
+body.bot-responding .prompt-form #stop-response-btn {
+  display: block;
+}
+.prompt-container .disclaimer-text {
+  /* text-align: center; */
+  width: 760px;
+  padding: 20px 0px;
+  margin-right: 405px;
+  color: #616161;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

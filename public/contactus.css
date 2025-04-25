@@ -1,0 +1,536 @@
+
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    }
+    .main-cont{
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+    }
+    .col-1{
+        position: absolute; 
+        left: 0px;
+        top: 0px;
+        display: flex;
+        flex-direction: column;
+        z-index: -1;
+    }
+    
+    .col-2{
+        
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 420px;
+        z-index: -1;
+       
+    }
+    
+    .col-3{
+        
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 840px;
+        z-index: -1;
+       
+    }
+    
+    .col-4{
+        
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 1260px;
+        z-index: -1;
+       
+    }
+    
+    
+    .bg-1 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+        
+    }
+    .bg-2 {
+        
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-3 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+      
+    }.bg-4 {
+        
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+        
+    }
+    
+    .bg-5 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    } 
+    .bg-6 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-7 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-8 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-9 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }
+    .bg-10 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-11 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-12 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-13 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }
+    .bg-14 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-15 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+       
+    }.bg-16 {
+       
+        width: 420px;
+        height: 210px;
+        object-fit: cover;
+        
+    }
+    
+    
+    
+    
+    .main-box{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 267px;
+    
+    }
+    .text-box{
+    position: absolute;
+    top: -37px;
+    }
+    .text-box h2{
+    color: #F59C42;
+    font-family: "Rubik Moonrocks";
+    font-size: 77px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.42px;
+    }
+    
+    .form-div{
+        position: absolute;
+        top: 22px;
+    }
+    
+    
+    .cont-form{
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .inp-name::placeholder{
+        color: #828282;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    }
+    .inp-name {
+    display: flex;
+    width: 472px;
+    height: 13px;
+    padding: 12px 13px;
+    align-items: flex-start;
+    border-radius: 50px;
+    border: 1px solid #FFF;
+    background: #F3F1C1;
+    color: #828282;
+    transition: background-color 0.4s ease, transform 0.2s ease;
+    
+    
+    }
+    .inp-name:hover{
+        display: flex;
+    width: 472px;
+    height: 13px;
+    padding: 12px 13px;
+    align-items: flex-start;
+    border-radius: 50px;
+    border: 2px solid #FFF;
+    background: #000;
+    border-radius: 50px;
+    color: #FFFFFF;
+    
+    
+    
+    
+    /* Button Shadow */
+    
+    }
+    .inp-lab{
+        color: #FFF;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; 
+    width: 120px;
+    height: 30px;
+    
+    
+    }
+    
+    .tony{
+        position: absolute;
+        top: 218.5px;
+    }
+    .lab-tony{
+        position: absolute;
+        top: 193px;
+    }
+    
+    .lab-stark{
+        position: absolute;
+        top: 276px;   
+    }
+    
+    .stark{
+        position: absolute;
+        top: 302px;
+    }
+    
+    
+    .lab-email{
+        position: absolute;
+        top: 360px;   
+    }
+    
+    .email{
+        position: absolute;
+        top: 386px;   
+    }
+    .lab-msg{
+    
+        position: absolute;
+        top: 445px;   
+    
+    }
+    
+    .msg{
+        position: absolute;
+        top: 469px;   
+    }
+    
+    
+    
+    .sub-btn{
+        border-radius: 20px;
+    border: 2px solid #FFF;
+    background: #000;display: flex;
+    width: 324px;
+    height: 42px;
+    padding: 9px 0px 9px 0px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; 
+    position: absolute;
+    top: 635px;
+    left: 78px;
+    transition: background-color 0.6s ease, transform 0.2s ease;
+    }
+    .sub-btn:hover{
+        background: #F59C42;
+        border-radius: 24px;
+    border: 2px solid #FFF;
+    color: #000000;
+    }
+    
+    
+    .msg{
+        resize: none;
+        height: 106px;
+        width: 475px;
+        border-radius: 20px;
+        border: 1px solid #FFF;
+        background: #F3F1C1;
+        padding: 11px;
+        
+        /* Button Shadow */
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+        color: #828282;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; 
+    transition: background-color 0.4s ease, transform 0.2s ease;
+    }
+    .msg:hover{
+        border-radius: 20px;
+        border: 2px solid #FFF;
+        background: #000;
+        color: #FFF;
+       
+    
+    }
+    .sun{
+        position: absolute;
+        bottom: -185px;
+        left: -180px;
+    }
+    .sun video{
+        height: 380px;
+        width: 380px;
+    }
+    .earth{
+        position: absolute;
+        top: -170px;
+        right: -170px;
+    }
+    .earth video{
+        height: 370px;
+        width: 370px;  
+    }
+    .arrow-back{
+        position: absolute;
+        top: 350px;
+        left: 28px;
+    }
+    .arrow-back img{
+        height: 40px;
+        width: 40px;
+    }
+    
+    .box-1{
+        position: absolute;
+        top: 7px;
+        right: 370px;
+        z-index: 1;
+    }
+    .box-1 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(174.38deg);
+    
+    }
+    
+    
+    .box-2{
+        position: absolute;
+        top: 80px;
+        right: 170px;
+        z-index: 1;
+    }
+    .box-2 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(174.38deg);
+    }
+    
+    .box-3{
+        position: absolute;
+        top: 200px;
+        right: 45px;
+        z-index: 1;
+    }
+    .box-3 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(-55.38deg);
+    }
+    
+    
+    .box-4{
+        position: absolute;
+        top: 200px;
+        right: 480px;
+        z-index: 1;
+    }
+    .box-4 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(154.38deg);
+    }
+    
+    
+    .box-5{
+        position: absolute;
+        top:300px;
+        right: 240px;
+        z-index: 1;
+    }
+    .box-5 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(150.38deg);
+    }
+    
+    
+    .box-6{
+        position: absolute;
+        top: 440px;
+        right: 20px;
+        z-index: 1;
+    }
+    
+    
+    .box-6 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(-94.38deg);
+    }
+    
+    
+    .box-7{
+        position: absolute;
+        top: 405px;
+        right: 450px;
+        z-index: 1;
+    }
+    .box-7 video{
+        width: 230px;
+        height: 230px;
+       
+        transform: rotate(174.38deg);
+    }
+    
+    
+    .box-8{
+        position: absolute;
+        top: 507px;
+        right: 240px;
+        z-index: 1;
+    }
+    .box-8 video{
+        width: 230px;
+        height: 230px;
+        transform: rotate(1.38deg);
+    }
+    
+    
+    .box-9{
+        position: absolute;
+        top: 548px;
+        right: 535px;
+        z-index: 2;
+    }
+    .box-9 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(4.38deg);
+    }
+    
+    
+    .box-10{
+        position: absolute;
+        top: 555px;
+        right: 20px;
+        z-index: 1;
+    }
+    .box-10 video{
+        width: 230px;
+        height: 230px;
+     transform: rotate(1.38deg);
+    }
+    .logo{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .logo img{
+        height: 85px;
+        width: 85px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    input:-webkit-autofill {
+        background-color: #F3F1C1 !important;  /* Set your desired background */
+        -webkit-text-fill-color: gray !important;  /* Set text color */
+        transition: background-color 5000s ease-in-out 0s; /* Prevent flashing */
+    }
+    input:-webkit-autofill:hover {
+        box-shadow: 0 0 0px 1000px #000 inset !important; /* Simulate background */
+        -webkit-text-fill-color: white !important; /* Change text color on hover */
+    }
+    

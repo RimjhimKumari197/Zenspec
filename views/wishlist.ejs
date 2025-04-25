@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist Product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Plus+Jakarta+Sans:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Iso&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+    <link rel="stylesheet" href="/scheader.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/wishlist-product.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    <link rel="stylesheet" href="/profile.css">
+
+
+</head>
+<body>
+    <div class="full-container">
+      <div class="header"> 
+        <header>
+        <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+        <div class="middle"> <nav>
+             <ul class="nav-links">
+            <li><form action="/search">
+                <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                <div class="suggestion-box" id="suggestions1"></div>
+
+                </input>
+            </div>
+        </form></li>
+            <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+            <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+            <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+            <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+            <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+             </ul> 
+        </nav></div>
+        <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+    </header>
+    <div class="dropdown-profile">
+       
+       
+        <div class="dropdown-content-profile" id="dropdown-content-profile">
+            <div class="triangle"></div>
+            <div class="order-list" >
+               <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+               <hr class="one">
+               <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+               <hr class="two">
+               <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+               <hr class="three">
+               <a href="/logout"> <span class="log" id="log">Log out</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+<div class="main2">
+<form action="/chatbot" method="get">
+<button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+</form>
+<div class="container2">
+   
+    <!-- App header -->
+    <div class="app-header2">
+        <div class="heading2">Hey, Buddy !</div>
+        <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+    </div>
+    <!-- button list -->
+     <button class="explain">Explain the page.</button><br>
+     <button class="summarize">Summarize the page.</button>
+     <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+
+     <!-- chats container2  -->
+     <div class="chats-container2"></div>
+     <!-- prompt container2 -->
+     <div class="prompt-container2">
+        <div class="prompt-wrapper2">
+            <form action="" class="prompt-form2">
+                <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                <div class="prompt-action2">
+                    <!-- file-upload-wrapper -->
+                    <div class="file-upload-wrapper2">
+                        <img src="#" alt="" class="file-preview2">
+                        <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                        <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                        <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                        <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+
+                    </div>
+                    <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                    <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+
+                </div>
+            </form>
+            <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+            <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+            <!-- <button id="explain-chats-btn">explain</button> -->
+
+        </div>
+        
+     </div>
+    </div>
+
+
+</div>
+    <div class="main">
+        <img src="/wishlist-left-img.png" alt="" class="left-img">
+        <img src="/wishlist-right-img.png" alt="" class="right-img">
+
+        <button class="arrow" id="arrow-back"><img src="/wishlist-arrow-back.png" alt=""></button></div>
+         <div class="wishlist-text">Your Favorite gadgets <img src="/wishlist-smily.png" alt="" class="smily"></div>
+ <div class="product-pagination-wrapper">
+        <% products.forEach(product => { %>
+            <% const p = product.data; %>
+            <% if (product.category === 'laptop') { %>
+                <div class="device-wrapper">
+  
+                    
+                    
+                      <div class="each-product" onclick="handleClick(event, '<%= p._id %>','laptop')">
+                      <img src="<%=p.Imgurl%>" alt="" class="device-image">
+                      <div class="device-info-wrapper">
+                        <div class="device-name"><%=p.Product_name%></div>
+                        <div class="device-info"><%= p.Product_filter_display %></div>
+                        <div class="device-info"><%= p.Product_filter_processor %></div>
+                        <div class="device-info"><%= p.Product_filter_graphics %></div>
+                        <div class="device-info"><%= p.Product_filter_wifi %></div>
+                        <div class="device-info"><%= p.product_filter_warranty %></div>
+                  
+                      </div>
+                      <div class="button-price-wrapper">
+                        <div class="button-price-info-box">
+                          <div class="product-price-info"><span class="from">From</span> <span>₹<%= new Intl.NumberFormat('en-IN').format(p.Price) %></span></div>
+                          <div class="offers">No offers included</div>
+                          <%const isInWishlist = userWishlist.some(item => 
+                          item.productId.toString() === p._id.toString() && item.category === 'laptop')%>
+                        
+                     
+                         <div class="wishlist-wrapper <%= isInWishlist ? 'clicked' : '' %>"  data-id="<%= p._id %>" data-category="laptop">
+                        <form action="">
+                        <button class="wishlist-btn"><img src="/<%= isInWishlist ? 'filter-click-wishlist.png' : 'filter-wishlist-black.png' %>" class="wishlist-icon" /></button>
+                        <button class="wishlist2-btn"><img src="/filter-hover-wishlist.png" alt="" class="wishlist2"></button>
+                    
+                      </form>
+                      </div>
+                          
+                          <form action="/compare/form?id1=<%= p.Product_name %>" method="POST">
+                            <button class="compare-btn">Compare</button>
+                          </form>
+                          <form action="/chatbot" class="zenny-form">
+                            <button class="zenny-btn"><span class="ask-text">Ask Zenny!</span><img src="/zennylogo-btn-main-filter.png" alt="" class="button-zenny"></button>
+                         </form>
+                        </div>
+                      </div>
+                    </div>
+                  
+                  
+                   </div>
+                
+              <% } else if (product.category === 'phone') { %>
+                <div class="device-wrapper">
+  
+                    
+                    
+                      <div class="each-product" onclick="handleClick(event, '<%= p._id %>','phone')">
+                      <img src="<%=p.Imgurl%>" alt="" class="device-image">
+                      <div class="device-info-wrapper">
+                        <div class="device-name"><%=p.product_name%></div>
+                        <div class="device-info"><%= p.Product_filter_display %></div>
+                        <div class="device-info"><%= p.Product_filter_camera %></div>
+                        <div class="device-info"><%= p.Product_filter_battery %></div>
+                        <div class="device-info"><%= p.Product_filter_processor %></div>
+                        <div class="device-info"><%= p.product_filter_warranty %></div>
+                  
+                      </div>
+                      <div class="button-price-wrapper">
+                        <div class="button-price-info-box">
+                          <div class="product-price-info"><span class="from">From</span> <span>₹<%= new Intl.NumberFormat('en-IN').format(p.Price) %></span></div>
+                          <div class="offers">No offers included</div>
+                          <%const isInWishlist = userWishlist.some(item => 
+                          item.productId.toString() === p._id.toString() && item.category === 'phone')%>
+                        
+                     
+                         <div class="wishlist-wrapper <%= isInWishlist ? 'clicked' : '' %>"  data-id="<%= p._id %>" data-category="phone">
+                        <form action="">
+                        <button class="wishlist-btn"><img src="/<%= isInWishlist ? 'filter-click-wishlist.png' : 'filter-wishlist-black.png' %>" class="wishlist-icon" /></button>
+                        <button class="wishlist2-btn"><img src="/filter-hover-wishlist.png" alt="" class="wishlist2"></button>
+                    
+                      </form>
+                      </div>
+                          
+                          <form action="/compare/form?id1=<%= p.product_name %>" method="POST">
+                            <button class="compare-btn">Compare</button>
+                          </form>
+                          <form action="/chatbot" class="zenny-form">
+                            <button class="zenny-btn"><span class="ask-text">Ask Zenny!</span><img src="/zennylogo-btn-main-filter.png" alt="" class="button-zenny"></button>
+                         </form>
+                        </div>
+                      </div>
+                    </div>
+                  
+                 
+                   </div>
+              <% } %>
+        <% }) %>
+    <div class="pagination">
+  <% if (currentPage > 1) { %>
+    <span onclick="refreshToNewPage('<%= currentPage - 1 %>', 'left')" class="nav-btn">
+      <img src="/filter-enable-prev.svg" alt="Previous" class="enabled-prev">
+    </span>
+  <% } else { %>
+    <span class="nav-btn disabled">
+      <img src="/filter-disable-prev.svg" alt="Prev Disabled" class="disabled-prev">
+    </span>
+  <% } %>
+
+  <% for (let i = 1; i <= totalPages; i++) { %>
+    <% if (i === currentPage) { %>
+      <span class="pageNo">0<%= i %></span>
+    <%}%>
+  <% } %>
+
+  <% if (currentPage < totalPages) { %>
+    <span onclick="refreshToNewPage('<%= currentPage + 1 %>', 'right')" class="nav-btn">
+      <img src="/filter-enable-next.svg" alt="Next" class="enabled-next">
+    </span>
+  <% } else { %>
+    <span class="nav-btn disabled">
+      <img src="/filter-disable-next.svg" alt="Next Disabled" class="disabled-next">
+    </span>
+  <% } %>
+</div>
+<div class="contact-us">
+    <span class="contact-us-text">Discuss about additional details.</span>
+    <form action="/contactus">
+        <button class="contact-us-btn">Contact Us</button></form>
+</div>
+
+</div>
+    
+<div class="footer">  <hr>
+   <footer>
+      
+   <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+   
+   <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+
+   <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+    <div class="overlay"></div></div>
+
+   
+
+   <div class="social">
+    <button><i class="fa-brands fa-facebook"></i></button>
+    <button><i class="fa-brands fa-linkedin"></i></button>  
+    <button><i class="fa-brands fa-youtube"></i></button> 
+    <button><i class="fa-brands fa-instagram"></i></button> 
+ </div>
+</div>
+   </footer>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="/wishlist-product.js"></script>
+<script src="/profile.js"></script>
+<script src="/chatbot.js"></script>
+ 
+<script>
+   function sendPostRequest() {
+    fetch('/compare/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id1: 'value' })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      // optionally redirect or update UI
+    });
+  }
+  document.getElementById("arrow-back").addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent instant navigation
+
+            document.getElementById("arrow-back").classList.add("hello");
+                gsap.to("body", { 
+                    opacity: 0,  // Fade out
+                    duration: 0.3, 
+                    backgroundColor:"#F3F1C1",
+                    ease: "power2.out",
+                    onComplete: () => {
+                        window.history.back(); // Navigate back after fade-out
+                    }
+                });
+            });
+  </script>
+</body>
+</html>

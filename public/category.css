@@ -1,0 +1,232 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: poppins;
+    /* height: 970px; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+   
+}
+ body ::-webkit-scrollbar{
+    display: none;  
+} 
+.main-cont{
+    position: relative;
+    top: -2px;
+    height: 781px;
+}
+.mainpara{
+    position: absolute;
+    left: 198px;
+    top: 85px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 600;
+    line-height:   75px ;
+
+}
+#full-container{
+    position: relative;
+    height: 100%;
+   background-color:#F3F1C1;
+   z-index: 200;
+  }
+.Today{
+    
+    font-family: "Zilla Slab Highlight";
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 650;
+    line-height: 75px;
+    background:  transparent;
+}
+
+.container{
+    position: absolute;
+    top: 252px;
+    left: 200px;
+    bottom: 30px;
+    background: #000;
+    border-radius: 28px;
+    height: 498px;
+    width: 1142px;
+    display: flex;
+}
+ a{
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+    
+}
+
+.eye-video{
+    
+    height: 224px;
+    width: 224px;
+z-index: 0;
+}
+.eye{
+    position: absolute;
+    top: 138px;
+    left: 458px;
+    
+}
+
+.tree-left{
+    position: absolute;
+    top: 240px;
+    left: -18px;
+}
+
+.tree{
+    height: 189px;
+    width: 189px;
+    border-radius: 115px;
+    rotate: -25deg;
+   
+}
+.lap-left{
+    height: 189px;
+    width: 189px;
+    border-radius: 115px;
+    rotate: -25deg;
+   
+}
+.laptop-left{
+    position: absolute;
+    top: 580px;
+    left: 10px;
+}
+.tree-rig{
+    height: 185px;
+    width: 185px;
+    border-radius: 115px;
+    rotate: 25deg; 
+}
+.tree-right{
+    position: absolute;
+    top: 580px;
+    left: 1342px;   
+    z-index: 1;
+}
+.lap-right{
+      height: 185px;
+    width: 185px;
+    border-radius: 115px;
+    rotate: 25deg;
+
+}
+.laptop-right{
+    position: absolute;
+    top: 241px;
+    left: 1342px;     
+}
+.arr-img{
+    height: 220px;
+    width: 220px;
+}
+.arrow{
+    position: absolute;
+    top: 101px;
+left: 635px; 
+ }
+
+
+
+
+
+
+
+
+
+ .mobile-div {
+    width: 400px; /* Adjust based on image size */
+    height: 400px;
+    background-image: url("category-mobile.png");
+    background-size: cover;
+    transition: background-image 0.3s ease-in-out;}
+    
+    
+    
+    .mobile-div:hover {
+        background-image: url("category-hover-phone.png");
+    }
+    .mobile-div{
+        position: absolute;
+        
+    }
+    .mobile-div{
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        z-index: 10;
+       
+        height:420px ;
+        width: 365px;
+        border-radius: 30px;
+       
+        cursor: pointer;
+        
+    }
+
+    .phones-text{
+        position: absolute;
+        right: 128px;
+        top: 356px;
+        color: #000;
+        font-family: Poppins;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; 
+       z-index: 11;
+    }
+
+
+    .laptop-div {
+        width: 400px; /* Adjust based on image size */
+        height: 400px;
+        background-image: url("category-laptop.png");
+        background-size: cover;
+        transition: background-image 0.3s ease-in-out;
+    }
+        
+        
+        
+        .laptop-div:hover {
+            background-image: url("category-hover-laptop.png");
+        }
+        .laptop-div{
+            position: absolute;
+            top: 40px;
+            left: 740px;
+            height:420px ;
+            width: 365px;
+            border-radius: 30px;
+           
+            cursor: pointer;
+            z-index: 10;
+        }
+        .lap-text{
+            position: absolute;
+            top: 354px;
+            left: 130px;  
+            color: #000;
+            font-family: Poppins;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 150%; 
+             z-index: 11;
+        }
+        .header{
+            position: fixed;
+            top: 0px;
+            width: 100vw;
+            z-index: 2000;
+        }
+    

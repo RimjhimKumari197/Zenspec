@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>freq-asked-que</title>
+
+
+    <link rel="stylesheet" href="/profile.css">
+    <link rel="stylesheet" href="/scheader.css"> 
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/faq.css">
+    <link rel="stylesheet" href="/smallchatbot.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Potta+One&family=Rubik+Iso&family=Yellowtail&family=Zen+Dots&family=Zeyada&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Potta+One&family=Rubik+Iso&family=Yellowtail&family=Zen+Dots&family=Zeyada&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@300;400;700" />
+</head>
+<body>
+
+
+    <div class="header"> 
+        <header>
+        <div class="logo"> <a href="/home"><img src="/Zenspeclogo.png" alt="app-logo"></a></div>
+        <div class="middle"> <nav>
+             <ul class="nav-links">
+            <li><form action="/search">
+                <div class="Search"><img src="/searchicon.png" alt=""> <input type="search" placeholder="Search a Gadget" class="search-input" name="searchquery" autocomplete="off">
+                <div class="suggestion-box" id="suggestions1"></div>
+
+                </input>
+            </div>
+        </form></li>
+            <li><a href="/home" class="<%= currentRoute === 'home' ? 'active-link' : '' %>">Home</a></li>
+            <li><a href="/category" class="<%= currentRoute === 'category' ? 'active-link' : '' %>">Category</a></li>
+            <li><a href="#" onclick="event.preventDefault(); document.getElementById('postForm').submit();" class="<%= currentRoute === 'compare' ? 'active-link' : '' %>">Compare</a></li>
+            <form id="postForm" action="/compare/form" method="POST" style="display: none;"></form>
+            <li><a href="/pricetracker" class="<%= currentRoute === 'pricetracker' ? 'active-link' : '' %>">Price tracker</a></li>
+            <li><a href="/technews" class="<%= currentRoute === 'technews' ? 'active-link' : '' %>">Tech news</a></li>
+             </ul> 
+        </nav></div>
+        <button class="user"><a href="#"><img src="/user-logo.svg" alt="user-icon" onclick="toggleDropdown()" ></a></button>
+
+    </header>
+    <div class="dropdown-profile">
+       
+       
+        <div class="dropdown-content-profile" id="dropdown-content-profile">
+            <div class="triangle"></div>
+            <div class="order-list" >
+               <a href="/profilesettings"> <span class="pro-set">Profile and settings</span></a>
+               <hr class="one">
+               <a href="/wishlist"> <span class="wish">Wishlist</span></a>
+               <hr class="two">
+               <a href="/supportcontact"> <span class="sup-cont">Support and Contact</span></a>
+               <hr class="three">
+               <a href="/logout"> <span class="log" id="log">Log out</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="minimize-chatbot"><video src="/zenny-ani.mp4" autoplay loop muted class="Zenny-icon-ani"></video></div>
+    <div class="main2">
+    <form action="/chatbot" method="get">
+    <button class="maximize-btn" id="expandBtn"><img src="/light-chatbot-maximize.png" alt="" class="maximize-btn-img"></button>
+    </form>
+    <div class="container2">
+       
+        <!-- App header -->
+        <div class="app-header2">
+            <div class="heading2">Hey, Buddy !</div>
+            <div class="sub-heading2">Zenny here, <span>Let me help you...</span></div>
+        </div>
+        <!-- button list -->
+         <button class="explain">Explain the page.</button><br>
+         <button class="summarize">Summarize the page.</button>
+         <div class="fullscreen-text">Enter full screen, to deep dive into information.</div>
+    
+         <!-- chats container2  -->
+         <div class="chats-container2"></div>
+         <!-- prompt container2 -->
+         <div class="prompt-container2">
+            <div class="prompt-wrapper2">
+                <form action="" class="prompt-form2">
+                    <input type="text" class="prompt-input2" placeholder="Ask Zenny" required>
+                    <div class="prompt-action2">
+                        <!-- file-upload-wrapper -->
+                        <div class="file-upload-wrapper2">
+                            <img src="#" alt="" class="file-preview2">
+                            <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input2" hidden>
+                            <button  class="file-icon2 material-symbols-rounded" type="button">description</button>
+                            <button id="add-file-btn2" class="material-symbols-rounded" type="button">attach_file</button>
+                            <button id="cancel-file-btn2" class="material-symbols-rounded" type="button">close</button>
+    
+                        </div>
+                        <button id="stop-response-btn2" class="material-symbols-rounded"  type="button">stop_circle</button>
+                        <button id="send-prompt-btn2" class="material-symbols-rounded">arrow_upward</button>
+    
+                    </div>
+                </form>
+                <button id="theme-toggle-btn2" class="material-symbols-rounded" >light_mode</button>
+                <button id="delete-chats-btn2" class="material-symbols-rounded" style="display: none;" >delete</button>
+                <!-- <button id="explain-chats-btn">explain</button> -->
+    
+            </div>
+            
+         </div>
+        </div>
+    
+    
+    </div>
+
+
+    <div class="main-cont">
+  
+        <p class="ques"><span>Frequently Asked Questions (FAQs)</span></p>
+       
+       <hr class="hr-outer">
+
+     <div class="freq-ques">
+       
+        <div class="general">
+            <span class="gen">General Questions</span>
+
+        </div>
+       
+           <hr class="all-hr hr-gen">
+
+        <div class="box-1">
+            <span class="spn">1. What is Zenspec?</span> 
+           <p class="para-1">Zenspec.tech is a smart gadget finder and comparison platform designed to help students and professionals find the perfect laptop or smartphone based <br> on their budget, needs, and specifications.</p>
+        </div>
+       
+         <hr class="all-hr hr-1">
+
+
+        <div class="box-2">
+            <span class="spn">2. How does Zenspec work?</span>
+            <p class="para-2">Simply enter your preferences, such as budget, brand, or specifications, and our advanced filtering system will show you the best options. You can also <br> compare gadgets side by side to make an informed decision.</p>
+        </div>
+        <hr class="all-hr hr-2">
+        <div class="box-3">
+            <span class="spn">3. Is Zenspec free to use?</span>
+            <p class="para-3">Yes! Our platform is completely free for users to browse, compare, and analyze gadgets.</p>
+        </div>
+        <hr class="all-hr hr-3">
+
+        <div class="box-4">
+            <span class="spn">4. Where does Zenspec get its data from?</span>
+            <p class="para-4">We collect data from trusted sources, including official brand websites, verified retailers, and expert reviews, ensuring accurate and up-to-date <br> information.</p>
+        </div>
+
+        <hr class="all-hr hr-4">
+
+        <div class="box-5">
+            <span class="spn">5. Does Zenspec provide purchase links?</span>
+            <p class="para-5">Yes, we provide links to trusted online retailers so you can directly purchase your chosen gadget at the best price.</p>
+        </div>
+
+        <div class="zenny">
+            <span class="zen">About Zenny</span>
+
+        </div>
+       
+        <hr class="all-hr hr-zen">
+ 
+       
+        <div class="box-6">
+            <span class="spn">1. What can Zenny do?</span>
+            <p class="para-6">Zenny is our AI-powered chatbot that helps answer your tech-related questions, explain complex specifications in simple terms, and guide you through the <br>website.</p>
+        </div>
+
+       
+        <hr class="all-hr hr-5">
+        <div class="box-7">
+            <span class="spn">2. How do I use Zenny to simplify specs?</span>
+            <p class="para-7">Just highlight any technical term or specification, and Zenny will provide an easy-to-understand explanation.</p>
+        </div>
+
+
+
+        <div class="usr-spt">
+            <span class="u-s">User Accounts & Support</span>
+        </div>
+        <hr class="all-hr hr-usr">
+       
+       
+        
+        <div class="box-8">
+            <span class="spn">1. Do I need to create an account to use Zenspec?</span>
+            <p class="para-8">Yes, you need to create an account to browse and compare gadgets . However, creating an account lets you save favorite products and wishlist them.</p>
+        </div>
+       <hr class="all-hr hr-6">
+
+        <div class="box-9">
+            <span class="spn">2. How can I contact support if I have an issue?</span>
+            <p class="para-9">You can reach out to us through our Contact Us page or email us at infozenspec@gmail.com</p>
+        </div>
+         <hr class="all-hr hr-7">
+
+
+        <div class="box-10"> 
+            <span class="spn">3. Can I request a new gadget to be added?</span>
+            <p class="para-10">Yes! If you don’t find a specific gadget, you can send us a request, and we’ll try to add it as soon as possible.</p>
+        </div>
+        
+     </div>
+     <div class="last-text"><h2>Want to discuss about additional details.</h2></div>
+
+    </div>
+        <form action="/contactus" id="form-cont-btn"><a href=""> <button class="cont-btn">Contact Us</button></a></form>
+        <button class="arrow-back" id="arrow-back"><img src="/freq-asked-que-arrow_back.png" alt=""></button>
+
+
+
+
+
+
+
+
+
+
+        <div class="footer">  <hr>
+            <footer>
+               
+            <div class="f-left"> <span class="span-1">Zenspec</span><p> <span class="span1-1">© 2025, Zenspec.tech</span><br><span class="span1-2">All rights reserved.</span></p></div>
+            
+            <div class="f-middle"> <p>About us <br><a href="/contactus">Contact us</a> <br><a href="/termsandcondition">Terms and conditions.</a></p></div>
+         
+            <div class="f-right"> <p>Crafted with</p> <div class="heart"><video autoplay loop muted src="/zenspec.heart.mp4"></video>
+             <div class="overlay"></div></div>
+         
+            
+         
+            <div class="social">
+             <button><i class="fa-brands fa-facebook"></i></button>
+             <button><i class="fa-brands fa-linkedin"></i></button>  
+             <button><i class="fa-brands fa-youtube"></i></button> 
+             <button><i class="fa-brands fa-instagram"></i></button> 
+          </div>
+         </div>
+            </footer>
+         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+        <script>
+            document.getElementById("arrow-back").addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent instant navigation
+
+            
+                gsap.to("body", { 
+                    opacity: 0,  // Fade out
+                    duration: 0.3, 
+                    backgroundColor:"#F3F1C1",
+                    ease: "power2.out",
+                    onComplete: () => {
+                        window.history.back(); // Navigate back after fade-out
+                    }
+                });
+            });
+        </script>
+       <script src="/profile.js"></script>
+       <script src="/chatbot.js"></script>
+       <script src="/logout.js"></script>
+       
+
+</body>
+
+</html>

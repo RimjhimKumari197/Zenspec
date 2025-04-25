@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+}
+html,body{
+  background: #000;
+}
+
+.main-container{
+  background-image: url('../images/onboarding.png'); 
+  background-size: 100vw 100vh; 
+  /* background-position: center;  */
+  background-repeat: no-repeat; 
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+   align-items: center;
+}
+.btn{
+  all: unset; /* Reset browser styles */
+  position: absolute;
+  top: 680px;
+  left: 600px;
+  min-width: 300px;
+  height: 70px;
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0 20px;
+  border-radius: 143px;
+  background: #FBFDFF;
+  z-index: 10;
+  transition:background-color 300ms ease-in-out,color 300ms ease-in-out;
+  
+}
+#main-img-container {
+  position: relative;
+  width: 600px; /* Adjust as per the actual image size */
+  top: 280px;
+  left:395px;
+  
+ opacity: 0;
+  transition:opacity 300ms ease-in-out;
+  /* transform: rotate(5.924deg); */
+}
+
+.image-container img {
+  width: 450px;
+  height: 330px;
+  display: block;
+
+}
+
+.overlay-text {
+  position: absolute;
+    top: 125px; /* Adjust positioning */
+    left: 70px;
+    transform: rotate(4.657deg);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 275;
+    line-height: normal;
+    height: 250px;
+    width: 300px;
+}
+.btn:hover{
+  
+  background: #07F;
+   color: #FFF;
+   
+}
+
+#main-img-container.opacity{
+  opacity: 1;
+}

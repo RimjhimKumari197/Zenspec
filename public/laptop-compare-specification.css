@@ -1,0 +1,132 @@
+.specification-wrapper,.camera-wrapper,.benchmark-wrapper,.highlight-wrapper{
+    width: 1305px;
+    margin-left: 34.5px;
+    border-radius: 32px;
+    border: 2px solid #000;
+    position: relative;
+    padding: 0px 25px;
+    
+}
+.camera-wrapper,.benchmark-wrapper{
+    margin-top: 120px;
+}
+.highlight-wrapper{
+    margin-top: 60px;
+}
+.specification-heading,.camera-heading,.benchmark-heading,.highlight-heading{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+.specification-heading span,.camera-heading span,.benchmark-heading span,.highlight-heading span{
+    
+    padding: 0px 70px;
+    height: 75px;
+    border-radius: 28px;
+    background: #000;
+    color: #fff;
+    font-family: Poppins;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 67.5px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -35px;
+
+}
+.compare-hr{
+    margin: 0px;
+    background-color: #DEDEDE;
+    height: 1.5px;
+}
+.specs-sub-heading{
+    margin-top: 45px;
+    margin-bottom: 18px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 54px */
+}
+.specs{
+    display: flex;
+    border-top: 2px solid #DEDEDE;
+   
+
+}
+.last{
+    border-bottom: 2px solid #DEDEDE;
+
+}
+.specs-heading{
+    width: 435px;
+    
+}
+.specs-heading .value-wrapper{
+    margin: 18px 0px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 36px */
+}
+.device1-specs-value .value-wrapper,.device2-specs-value .value-wrapper{
+    
+    margin-left: 25px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    color: #565656;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+}
+
+.device1-specs-value,.device2-specs-value{
+    width: 435px;
+    
+}
+
+.device1-specs-value{
+    border-left: 2px solid #DEDEDE;;
+    border-right: 2px solid #DEDEDE;;
+
+}
+.specs-last{
+    margin-bottom: 80px;
+
+}
+.division{
+    margin-bottom: 70px;
+
+}
+.highlight{
+    margin-top: 90px;
+}
+.link{
+    text-decoration: none;
+    color: #07F;
+}
+.disclaimer{
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 40px;
+    text-align: center;
+}
+.disclaimer span{
+    color: #000;
+   font-family: Poppins;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 150%; /* 36px */
+}

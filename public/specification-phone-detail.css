@@ -1,0 +1,107 @@
+.specification{
+    
+    width: 1330px;
+    margin-left: 55px;
+    /* margin-bottom: 30px; */
+    background-color: #000;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    
+  }
+  .top-margin,.bottom-margin{
+    width: 1330px;
+    height: 40px;
+    background-color: #000;
+    border-top-left-radius: 24px;
+  }
+  .bottom-margin{
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+
+    
+  }
+  .top-margin{
+    position: relative;
+  }
+  .specification-wrapper{
+    border-radius: 24px;
+    background: #F3F1C1;
+    width: 1160px;
+    /* height: 700px; */
+    margin-left: 40px ;
+    padding: 45px 45px 20px 45px;
+   
+  }
+  .line{
+    position: relative;
+    left: 535px;
+    height: 40px;
+    width: 725px;
+    padding: 0px 35px  0px 35px;
+    background-color:#000;
+  }
+  .line hr{
+    position: relative;
+    top: 10px;
+    /* width: 725px; */
+    background-color: white;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .specification-heading{
+    color: #000;
+    font-family: Poppins;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 67.5px */
+    height: 40px;
+    margin-bottom: 23px;
+  }
+  .hr-line{
+    position: relative;
+    top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin: 0px 0px 20px 0px ;
+  }
+  .sub-spec-heading{
+    color: #000;
+font-family: "Zilla Slab Highlight";
+font-size: 26px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 48px */
+margin-bottom: 20px;
+
+  }
+.specs{
+    display: flex;
+    gap: 100px;
+margin: 10px 0px 20px 0px;
+
+}
+.specs .specs-name{
+ color: #000;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 30px */
+width: 200px;
+}
+.specs .specs-description{
+    display: flex;
+    flex-direction: column;
+
+}
+.specs .desc-text{
+    color: #828282;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 30px */
+width: 780px;
+}

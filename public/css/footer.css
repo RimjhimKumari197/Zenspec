@@ -1,0 +1,102 @@
+
+hr{
+    height: 1px;
+    margin: 30px;
+    background: #000;
+    border: 0px;
+    
+}
+footer{
+    position: relative;
+    top: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin: 32px;
+    height: 200px;
+}
+.f-left p{
+    margin-top: 35px;
+   font-family: Poppins;
+   color: #000;
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 36px */
+   
+
+}
+.f-left .span-1{
+ font-family: poppins;
+ color: #000;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 36px */
+}
+.f-left .span1-2{
+margin-left: 15px;
+}
+.f-middle{
+    position: relative;
+    left: 70px;
+}
+.f-middle p{
+    margin-top: 0px;
+    color: #000;
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px;
+}
+.f-right{
+    display: flex;
+    
+   
+}
+.f-right p{
+    position: relative;
+    right: -75px;
+    top: 40px; 
+    color: #000;
+    font-family: Yellowtail;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 60px */   
+}
+.social{
+    position: relative;
+    right: 39px;
+     top: -20px; 
+    height: 40px;
+    width: 125px;
+    display: flex;
+    padding: 8px;
+  }
+
+.social button{
+   margin: 8px;
+   justify-content: center;
+   align-items: center;
+   border: none;
+   background: transparent;
+   font-size: 16px;
+}
+.social i{
+   color:#828282 ; 
+
+
+}
+.heart video{
+    
+    position: relative;
+    top: 30px;
+    right:-90px ;
+    /* margin: 0;padding: 0; */
+    height: 100px;
+    width: 100px;
+    background: #F3F1C1;
+    background-blend-mode: multiply;
+}
